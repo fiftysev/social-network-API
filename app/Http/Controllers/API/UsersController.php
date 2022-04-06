@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @group Users
@@ -37,5 +38,19 @@ class UsersController extends Controller
     public function show($id)
     {
         return User::findOrFail($id);
+    }
+
+    public function addProfileBackground(Request $request)
+    {
+        if ($request->hasFile('background')) {
+            \Storage::disk('s3')->put('images', $request->background);
+        }
+
+        return 'Wassup';
+    }
+
+    public function getProfileBackground(Request $request)
+    {
+        return Storage::disk('s3')->response("images/pp7JsFsp07qrR8jzbQMQcKUCxlEh7JaIe9JfQ1p5.png");
     }
 }

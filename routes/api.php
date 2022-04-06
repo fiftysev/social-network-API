@@ -21,6 +21,8 @@ Route::controller(UsersController::class)
     ->prefix('users')
     ->group(function () {
         Route::get('', 'index');
+        Route::get('test', 'getProfileBackground');
+        Route::post('test', 'addProfileBackground');
         Route::get('{id}', 'show');
     });
 
