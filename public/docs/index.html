@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var baseUrl = "http://social-network-API.test";
+        var baseUrl = "http://localhost:80/";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -70,6 +70,22 @@
                                                 </ul>
                     
                     <ul id="tocify-header-2" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authentication">
+                    <a href="#authentication">Authentication</a>
+                </li>
+                                    <ul id="tocify-subheader-authentication" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-auth-register">
+                        <a href="#authentication-POSTapi-auth-register">Register new user</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-auth-login">
+                        <a href="#authentication-POSTapi-auth-login">Login user</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="authentication-GETapi-auth-logout">
+                        <a href="#authentication-GETapi-auth-logout">GET api/auth/logout</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-3" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="users">
                     <a href="#users">Users</a>
                 </li>
@@ -100,16 +116,402 @@
     <div class="dark-box"></div>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
+<p>Social Network API for Front-end learning projects</p>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">http://social-network-API.test</code></pre>
+<pre><code class="language-yaml">localhost:80</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
+
+        <h1 id="authentication">Authentication</h1>
+
+    <p>API endpoints for app auth.</p>
+
+            <h2 id="authentication-POSTapi-auth-register">Register new user</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-register">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "localhost:80/api/auth/register" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"first_name\": \"odit\",
+    \"last_name\": \"consequatur\",
+    \"username\": \"saepe\",
+    \"email\": \"et\",
+    \"password\": \"nulla\",
+    \"password_confirmation\": \"praesentium\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "localhost:80/api/auth/register"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "first_name": "odit",
+    "last_name": "consequatur",
+    "username": "saepe",
+    "email": "et",
+    "password": "nulla",
+    "password_confirmation": "praesentium"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-register">
+            <blockquote>
+            <p>Example response (201, Successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">registered {
+ &quot;token&quot;: $10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-auth-register" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-register"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-register"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-register" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-register"></code></pre>
+</span>
+<form id="form-POSTapi-auth-register" data-method="POST"
+      data-path="api/auth/register"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-register', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-register"
+                    onclick="tryItOut('POSTapi-auth-register');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-register"
+                    onclick="cancelTryOut('POSTapi-auth-register');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-register" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/register</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>first_name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="first_name"
+               data-endpoint="POSTapi-auth-register"
+               value="odit"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>last_name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="last_name"
+               data-endpoint="POSTapi-auth-register"
+               value="consequatur"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>username</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="username"
+               data-endpoint="POSTapi-auth-register"
+               value="saepe"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-auth-register"
+               value="et"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-auth-register"
+               value="nulla"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>password_confirmation</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password_confirmation"
+               data-endpoint="POSTapi-auth-register"
+               value="praesentium"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="authentication-POSTapi-auth-login">Login user</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-auth-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "localhost:80/api/auth/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"username\": \"ut\",
+    \"password\": \"labore\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "localhost:80/api/auth/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "username": "ut",
+    "password": "labore"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-auth-login">
+            <blockquote>
+            <p>Example response (200, Successfully):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">logged in {
+ &quot;token&quot;: $10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-auth-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-auth-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-auth-login"></code></pre>
+</span>
+<span id="execution-error-POSTapi-auth-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-auth-login"></code></pre>
+</span>
+<form id="form-POSTapi-auth-login" data-method="POST"
+      data-path="api/auth/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-auth-login"
+                    onclick="tryItOut('POSTapi-auth-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-auth-login"
+                    onclick="cancelTryOut('POSTapi-auth-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-auth-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/auth/login</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>username</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="username"
+               data-endpoint="POSTapi-auth-login"
+               value="ut"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-auth-login"
+               value="labore"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="authentication-GETapi-auth-logout">GET api/auth/logout</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-auth-logout">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "localhost:80/api/auth/logout" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "localhost:80/api/auth/logout"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-auth-logout">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-auth-logout" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-auth-logout"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-auth-logout"></code></pre>
+</span>
+<span id="execution-error-GETapi-auth-logout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-auth-logout"></code></pre>
+</span>
+<form id="form-GETapi-auth-logout" data-method="GET"
+      data-path="api/auth/logout"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-auth-logout', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-auth-logout"
+                    onclick="tryItOut('GETapi-auth-logout');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-auth-logout"
+                    onclick="cancelTryOut('GETapi-auth-logout');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-auth-logout" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/auth/logout</code></b>
+        </p>
+                    </form>
 
         <h1 id="users">Users</h1>
 
@@ -128,14 +530,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://social-network-API.test/api/users?page=3&amp;per_page=12" \
+    --get "localhost:80/api/users?page=3&amp;per_page=12" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://social-network-API.test/api/users"
+    "localhost:80/api/users"
 );
 
 const params = {
@@ -178,111 +580,111 @@ access-control-allow-origin: *
     &quot;data&quot;: [
         {
             &quot;id&quot;: 25,
-            &quot;first_name&quot;: &quot;Nigel&quot;,
-            &quot;last_name&quot;: &quot;Baumbach&quot;,
-            &quot;status&quot;: &quot;Ut quidem sint ut accusamus tempora quia.&quot;,
+            &quot;first_name&quot;: &quot;Kristofer&quot;,
+            &quot;last_name&quot;: &quot;Davis&quot;,
+            &quot;status&quot;: &quot;Impedit qui debitis delectus dignissimos architecto quos.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;goldner.terrill&quot;,
-            &quot;email&quot;: &quot;pcummerata@example.org&quot;
+            &quot;username&quot;: &quot;kebert&quot;,
+            &quot;email&quot;: &quot;walker.adelia@example.com&quot;
         },
         {
             &quot;id&quot;: 26,
-            &quot;first_name&quot;: &quot;Noemy&quot;,
-            &quot;last_name&quot;: &quot;Wunsch&quot;,
-            &quot;status&quot;: &quot;Non dolor nemo illo molestiae mollitia.&quot;,
+            &quot;first_name&quot;: &quot;Derrick&quot;,
+            &quot;last_name&quot;: &quot;Leuschke&quot;,
+            &quot;status&quot;: &quot;Non repellat illo optio debitis voluptatem omnis.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;leo92&quot;,
-            &quot;email&quot;: &quot;xpollich@example.net&quot;
+            &quot;username&quot;: &quot;treutel.friedrich&quot;,
+            &quot;email&quot;: &quot;qblock@example.org&quot;
         },
         {
             &quot;id&quot;: 27,
-            &quot;first_name&quot;: &quot;Chelsey&quot;,
-            &quot;last_name&quot;: &quot;Veum&quot;,
-            &quot;status&quot;: &quot;Voluptate est dolorem saepe accusamus.&quot;,
+            &quot;first_name&quot;: &quot;Beverly&quot;,
+            &quot;last_name&quot;: &quot;Quitzon&quot;,
+            &quot;status&quot;: &quot;Omnis enim quod tempora earum ex.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;maryam67&quot;,
-            &quot;email&quot;: &quot;stiedemann.loyce@example.com&quot;
+            &quot;username&quot;: &quot;ykeeling&quot;,
+            &quot;email&quot;: &quot;hank09@example.net&quot;
         },
         {
             &quot;id&quot;: 28,
-            &quot;first_name&quot;: &quot;Dangelo&quot;,
-            &quot;last_name&quot;: &quot;Kuphal&quot;,
-            &quot;status&quot;: &quot;Cum voluptatem eum quia similique et quibusdam sit.&quot;,
+            &quot;first_name&quot;: &quot;Arno&quot;,
+            &quot;last_name&quot;: &quot;Cummerata&quot;,
+            &quot;status&quot;: &quot;Qui explicabo minima facere neque dolor eveniet.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;kcollins&quot;,
-            &quot;email&quot;: &quot;kuhlman.willie@example.net&quot;
+            &quot;username&quot;: &quot;kellie24&quot;,
+            &quot;email&quot;: &quot;drath@example.net&quot;
         },
         {
             &quot;id&quot;: 29,
-            &quot;first_name&quot;: &quot;Davion&quot;,
-            &quot;last_name&quot;: &quot;Bogan&quot;,
-            &quot;status&quot;: &quot;Architecto omnis omnis inventore quisquam temporibus.&quot;,
+            &quot;first_name&quot;: &quot;Aglae&quot;,
+            &quot;last_name&quot;: &quot;Shanahan&quot;,
+            &quot;status&quot;: &quot;Omnis eaque ea natus.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;gabbott&quot;,
-            &quot;email&quot;: &quot;bella77@example.com&quot;
+            &quot;username&quot;: &quot;obogan&quot;,
+            &quot;email&quot;: &quot;beverly38@example.net&quot;
         },
         {
             &quot;id&quot;: 30,
-            &quot;first_name&quot;: &quot;Francisco&quot;,
-            &quot;last_name&quot;: &quot;Effertz&quot;,
-            &quot;status&quot;: &quot;Dolores soluta enim est sit omnis autem nihil.&quot;,
+            &quot;first_name&quot;: &quot;Garett&quot;,
+            &quot;last_name&quot;: &quot;Orn&quot;,
+            &quot;status&quot;: &quot;Odit consequatur ea voluptatibus nemo accusamus ut eum.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;alice07&quot;,
-            &quot;email&quot;: &quot;bobbie.schamberger@example.net&quot;
+            &quot;username&quot;: &quot;eloisa.labadie&quot;,
+            &quot;email&quot;: &quot;queenie92@example.com&quot;
         },
         {
             &quot;id&quot;: 31,
-            &quot;first_name&quot;: &quot;Joany&quot;,
-            &quot;last_name&quot;: &quot;Gislason&quot;,
-            &quot;status&quot;: &quot;Esse et eum nihil aspernatur quo soluta aliquam est.&quot;,
+            &quot;first_name&quot;: &quot;Lue&quot;,
+            &quot;last_name&quot;: &quot;Stiedemann&quot;,
+            &quot;status&quot;: &quot;Voluptate tempora sit ut adipisci.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;rosalinda.flatley&quot;,
-            &quot;email&quot;: &quot;dicki.lurline@example.com&quot;
+            &quot;username&quot;: &quot;foreilly&quot;,
+            &quot;email&quot;: &quot;bryce92@example.net&quot;
         },
         {
             &quot;id&quot;: 32,
-            &quot;first_name&quot;: &quot;Delia&quot;,
-            &quot;last_name&quot;: &quot;Bernier&quot;,
-            &quot;status&quot;: &quot;Iusto exercitationem voluptatem ex alias.&quot;,
+            &quot;first_name&quot;: &quot;Kelton&quot;,
+            &quot;last_name&quot;: &quot;Zemlak&quot;,
+            &quot;status&quot;: &quot;Quae quibusdam commodi voluptatum aliquid aut suscipit.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;qromaguera&quot;,
-            &quot;email&quot;: &quot;oflatley@example.org&quot;
+            &quot;username&quot;: &quot;bechtelar.madilyn&quot;,
+            &quot;email&quot;: &quot;gaylord.marguerite@example.net&quot;
         },
         {
             &quot;id&quot;: 33,
-            &quot;first_name&quot;: &quot;Eula&quot;,
-            &quot;last_name&quot;: &quot;Wehner&quot;,
-            &quot;status&quot;: &quot;Ut perspiciatis corporis quos ab ut.&quot;,
+            &quot;first_name&quot;: &quot;Hans&quot;,
+            &quot;last_name&quot;: &quot;Gutkowski&quot;,
+            &quot;status&quot;: &quot;Mollitia autem odit ipsum officiis repellat nobis vel.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;stanley93&quot;,
-            &quot;email&quot;: &quot;fae.bogan@example.com&quot;
+            &quot;username&quot;: &quot;rex50&quot;,
+            &quot;email&quot;: &quot;jazmyn.roberts@example.net&quot;
         },
         {
             &quot;id&quot;: 34,
-            &quot;first_name&quot;: &quot;Ivy&quot;,
-            &quot;last_name&quot;: &quot;Lueilwitz&quot;,
-            &quot;status&quot;: &quot;Neque molestiae rem et molestiae quasi magni.&quot;,
+            &quot;first_name&quot;: &quot;Roman&quot;,
+            &quot;last_name&quot;: &quot;Hermann&quot;,
+            &quot;status&quot;: &quot;Saepe ea soluta atque tempora sunt consequatur aliquid.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;rbauch&quot;,
-            &quot;email&quot;: &quot;carroll.edmund@example.net&quot;
+            &quot;username&quot;: &quot;brekke.donna&quot;,
+            &quot;email&quot;: &quot;frunte@example.org&quot;
         },
         {
             &quot;id&quot;: 35,
-            &quot;first_name&quot;: &quot;Myles&quot;,
-            &quot;last_name&quot;: &quot;Christiansen&quot;,
-            &quot;status&quot;: &quot;Voluptatem similique et debitis modi numquam.&quot;,
+            &quot;first_name&quot;: &quot;Rey&quot;,
+            &quot;last_name&quot;: &quot;Beer&quot;,
+            &quot;status&quot;: &quot;Nostrum sunt autem accusantium.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;onie79&quot;,
-            &quot;email&quot;: &quot;delilah.welch@example.net&quot;
+            &quot;username&quot;: &quot;walker.marian&quot;,
+            &quot;email&quot;: &quot;leonor77@example.net&quot;
         },
         {
             &quot;id&quot;: 36,
-            &quot;first_name&quot;: &quot;Constance&quot;,
-            &quot;last_name&quot;: &quot;Pfeffer&quot;,
-            &quot;status&quot;: &quot;Aspernatur ullam et quo officiis dolores aut ea.&quot;,
+            &quot;first_name&quot;: &quot;Kobe&quot;,
+            &quot;last_name&quot;: &quot;Okuneva&quot;,
+            &quot;status&quot;: &quot;Veniam quia unde alias voluptatem.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;willis.farrell&quot;,
-            &quot;email&quot;: &quot;peyton.rogahn@example.com&quot;
+            &quot;username&quot;: &quot;kacie75&quot;,
+            &quot;email&quot;: &quot;myra37@example.org&quot;
         }
     ],
     &quot;first_page_url&quot;: &quot;http://social-network-api.test/api/users?page=1&quot;,
@@ -370,14 +772,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://social-network-API.test/api/users/13" \
+    --get "localhost:80/api/users/9" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://social-network-API.test/api/users/13"
+    "localhost:80/api/users/9"
 );
 
 const headers = {
@@ -409,13 +811,13 @@ access-control-allow-origin: *
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;id&quot;: 13,
-    &quot;first_name&quot;: &quot;Dayton&quot;,
-    &quot;last_name&quot;: &quot;Little&quot;,
-    &quot;status&quot;: &quot;Deserunt ut dolorum saepe aliquam alias qui.&quot;,
+    &quot;id&quot;: 9,
+    &quot;first_name&quot;: &quot;Penelope&quot;,
+    &quot;last_name&quot;: &quot;Jones&quot;,
+    &quot;status&quot;: &quot;Debitis omnis explicabo cum assumenda.&quot;,
     &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-    &quot;username&quot;: &quot;tremayne35&quot;,
-    &quot;email&quot;: &quot;kiarra34@example.net&quot;
+    &quot;username&quot;: &quot;eldora.hamill&quot;,
+    &quot;email&quot;: &quot;angelita.mcdermott@example.com&quot;
 }</code>
  </pre>
     </span>
@@ -464,7 +866,7 @@ access-control-allow-origin: *
                 <input type="number"
                name="id"
                data-endpoint="GETapi-users--id-"
-               value="13"
+               value="9"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UsersController;
+use App\Http\Controllers\API\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,8 @@ Route::controller(UsersController::class)->prefix('users')->group(function () {
     Route::get('{id}', 'show');
 });
 
+Route::controller(AuthController::class)->prefix('auth')->group(function () {
+    Route::post('register', 'register');
+    Route::post('login', 'login');
+    Route::get('logout', 'logout')->middleware('auth:api');
+});

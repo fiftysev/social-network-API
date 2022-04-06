@@ -1,0 +1,80 @@
+name: Users
+description: |-
+
+  API endpoints for users data
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/users
+    metadata:
+      title: 'All users list'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters:
+      page:
+        name: page
+        description: 'Current page number'
+        required: false
+        example: 3
+        type: integer
+        custom: []
+      per_page:
+        name: per_page
+        description: 'Page size'
+        required: false
+        example: 12
+        type: integer
+        custom: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"current_page":3,"data":[{"id":25,"first_name":"Kristofer","last_name":"Davis","status":"Impedit qui debitis delectus dignissimos architecto quos.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"kebert","email":"walker.adelia@example.com"},{"id":26,"first_name":"Derrick","last_name":"Leuschke","status":"Non repellat illo optio debitis voluptatem omnis.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"treutel.friedrich","email":"qblock@example.org"},{"id":27,"first_name":"Beverly","last_name":"Quitzon","status":"Omnis enim quod tempora earum ex.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"ykeeling","email":"hank09@example.net"},{"id":28,"first_name":"Arno","last_name":"Cummerata","status":"Qui explicabo minima facere neque dolor eveniet.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"kellie24","email":"drath@example.net"},{"id":29,"first_name":"Aglae","last_name":"Shanahan","status":"Omnis eaque ea natus.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"obogan","email":"beverly38@example.net"},{"id":30,"first_name":"Garett","last_name":"Orn","status":"Odit consequatur ea voluptatibus nemo accusamus ut eum.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"eloisa.labadie","email":"queenie92@example.com"},{"id":31,"first_name":"Lue","last_name":"Stiedemann","status":"Voluptate tempora sit ut adipisci.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"foreilly","email":"bryce92@example.net"},{"id":32,"first_name":"Kelton","last_name":"Zemlak","status":"Quae quibusdam commodi voluptatum aliquid aut suscipit.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"bechtelar.madilyn","email":"gaylord.marguerite@example.net"},{"id":33,"first_name":"Hans","last_name":"Gutkowski","status":"Mollitia autem odit ipsum officiis repellat nobis vel.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"rex50","email":"jazmyn.roberts@example.net"},{"id":34,"first_name":"Roman","last_name":"Hermann","status":"Saepe ea soluta atque tempora sunt consequatur aliquid.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"brekke.donna","email":"frunte@example.org"},{"id":35,"first_name":"Rey","last_name":"Beer","status":"Nostrum sunt autem accusantium.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"walker.marian","email":"leonor77@example.net"},{"id":36,"first_name":"Kobe","last_name":"Okuneva","status":"Veniam quia unde alias voluptatem.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"kacie75","email":"myra37@example.org"}],"first_page_url":"http:\/\/social-network-api.test\/api\/users?page=1","from":25,"next_page_url":"http:\/\/social-network-api.test\/api\/users?page=4","path":"http:\/\/social-network-api.test\/api\/users","per_page":12,"prev_page_url":"http:\/\/social-network-api.test\/api\/users?page=2","to":36}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/{id}'
+    metadata:
+      title: 'Get user by id'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 9
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":9,"first_name":"Penelope","last_name":"Jones","status":"Debitis omnis explicabo cum assumenda.","avatar":"https:\/\/source.unsplash.com\/random\/300x300","username":"eldora.hamill","email":"angelita.mcdermott@example.com"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '56'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
