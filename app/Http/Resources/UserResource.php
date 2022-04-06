@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Follow;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -21,6 +22,7 @@ class UserResource extends JsonResource
             'username' => $this->username,
             'avatar' => $this->avatar,
             'status' => $this->status,
+            'followed' => $this->when(auth()->check(), $this->followed)
         ];
     }
 }

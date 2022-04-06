@@ -48,6 +48,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $appends = [
+        'followed'
+    ];
+
     public function following(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Follow::class, 'follower');
@@ -56,5 +60,13 @@ class User extends Authenticatable
     public function followers(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Follow::class, 'following');
+    }
+
+    public function getFollowedAttribute()
+    {
+        return Follow::query()
+            ->where('follower', auth('api')->id())
+            ->where('following', $this->id)
+            ->exists();
     }
 }
