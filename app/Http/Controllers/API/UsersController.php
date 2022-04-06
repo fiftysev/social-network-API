@@ -11,13 +11,13 @@ class UsersController extends Controller
 {
     public function index(Request $request)
     {
-        return UserResource::collection(User::query()->paginate(
+        return User::query()->simplePaginate(
             $perPage = $request->query('per_page', 15)
-        ));
+        );
     }
 
     public function show($id)
     {
-        return new UserResource(User::findOrFail($id));
+        return User::findOrFail($id);
     }
 }
