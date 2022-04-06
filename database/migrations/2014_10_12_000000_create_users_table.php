@@ -20,10 +20,10 @@ return new class extends Migration
             $table->tinyText('status')->nullable();
 
             $table->longText('avatar')->default("https://source.unsplash.com/random/300x300");
+            $table->longText('profile_background')->default('http://source.unsplash.com/random/1200x600');
 
             $table->string('username')->unique()->default("");
             $table->string('email')->unique()->nullable();
-
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
