@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
  * API endpoints for users data
  */
 
+// TODO: Вынести логику из контроллера в сервис
+
 class UsersController extends Controller
 {
     /**

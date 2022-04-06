@@ -50,23 +50,23 @@ paths:
                 last_name:
                   type: string
                   description: ''
-                  example: id
+                  example: delectus
                 username:
                   type: string
                   description: ''
-                  example: assumenda
+                  example: est
                 email:
                   type: string
                   description: ''
-                  example: quisquam
+                  example: atque
                 password:
                   type: string
                   description: ''
-                  example: sed
+                  example: maiores
                 password_confirmation:
                   type: string
                   description: ''
-                  example: maiores
+                  example: delectus
               required:
                 - first_name
                 - last_name
@@ -114,11 +114,11 @@ paths:
                 username:
                   type: string
                   description: ''
-                  example: cupiditate
+                  example: placeat
                 password:
                   type: string
                   description: ''
-                  example: quibusdam
+                  example: consequatur
               required:
                 - username
                 - password
@@ -191,6 +191,126 @@ paths:
                     example: Unauthenticated.
       tags:
         - Authentication
+  /api/followers:
+    get:
+      summary: 'Return list of authenticated user followers'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Follow
+  /api/following:
+    get:
+      summary: 'Return list of users, which authenticated user following'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Follow
+  '/api/follow/{id}':
+    post:
+      summary: 'Endpoint for follow user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Follow
+    delete:
+      summary: 'Endpoint for unfollow user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Follow
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the follow.'
+        example: 9
+        required: true
+        schema:
+          type: integer
   /api/users:
     get:
       summary: 'All users list'
@@ -242,100 +362,100 @@ paths:
                   data:
                     -
                       id: 25
-                      first_name: Cassandra
-                      last_name: Rempel
-                      status: 'Beatae inventore aliquam illum quia doloribus.'
+                      first_name: Erich
+                      last_name: Glover
+                      status: 'Quia reiciendis dicta odio eius doloribus.'
                       avatar: 'https://source.unsplash.com/random/300x300'
-                      username: kelton94
-                      email: thompson.dorian@example.net
+                      username: cruickshank.flossieLRIbC
+                      email: elijah.feeney@example.com
                     -
                       id: 26
-                      first_name: Luther
-                      last_name: Larkin
-                      status: 'Id omnis dolores molestias.'
+                      first_name: Eveline
+                      last_name: Hackett
+                      status: 'Architecto deserunt nostrum corporis labore repellat nam sequi.'
                       avatar: 'https://source.unsplash.com/random/300x300'
-                      username: djohnson
-                      email: carmine48@example.com
+                      username: ayana87yhZDW
+                      email: ehowell@example.com
                     -
                       id: 27
-                      first_name: Sylvester
-                      last_name: Schuster
-                      status: 'Beatae velit asperiores dignissimos nisi voluptas odit.'
+                      first_name: Ashtyn
+                      last_name: Braun
+                      status: 'Nesciunt non nesciunt nihil.'
                       avatar: 'https://source.unsplash.com/random/300x300'
-                      username: lchamplin
-                      email: abraham.mante@example.com
+                      username: tstoltenbergmJZvE
+                      email: kian.gibson@example.org
                     -
                       id: 28
-                      first_name: Shana
-                      last_name: Williamson
-                      status: 'Veniam iusto sed repellendus nihil qui quasi cumque.'
+                      first_name: Euna
+                      last_name: Pacocha
+                      status: 'Aut veniam soluta eos omnis.'
                       avatar: 'https://source.unsplash.com/random/300x300'
-                      username: hharris
-                      email: nullrich@example.org
+                      username: ferry.heavenE0dRH
+                      email: king.angus@example.com
                     -
                       id: 29
-                      first_name: Justus
-                      last_name: Block
-                      status: 'Vel labore sint quos dicta fugiat dolorum odio quaerat.'
+                      first_name: Janae
+                      last_name: Schinner
+                      status: 'Est qui placeat et necessitatibus ratione.'
                       avatar: 'https://source.unsplash.com/random/300x300'
-                      username: kiara85
-                      email: itzel56@example.com
+                      username: rutherford.lloydZUObR
+                      email: raquel79@example.org
                     -
                       id: 30
-                      first_name: Jayne
-                      last_name: Hudson
-                      status: 'Nesciunt labore laborum incidunt velit sed voluptas veniam.'
+                      first_name: Jesus
+                      last_name: Schuppe
+                      status: 'Repudiandae rerum et ipsa a labore enim.'
                       avatar: 'https://source.unsplash.com/random/300x300'
-                      username: newell71
-                      email: henri66@example.org
+                      username: kiana.marksqOrAU
+                      email: jamar.kuvalis@example.org
                     -
                       id: 31
-                      first_name: Rafael
-                      last_name: Shanahan
-                      status: 'Distinctio qui itaque sapiente qui aut eius.'
+                      first_name: Rodrigo
+                      last_name: Kiehn
+                      status: 'Omnis expedita necessitatibus dolores et id cum.'
                       avatar: 'https://source.unsplash.com/random/300x300'
-                      username: clarkin
-                      email: harber.emily@example.com
+                      username: ruecker.joeluKtkN
+                      email: wcrooks@example.org
                     -
                       id: 32
-                      first_name: Percy
-                      last_name: Carroll
-                      status: 'Omnis aperiam aut cum repellendus.'
+                      first_name: Eugenia
+                      last_name: Zboncak
+                      status: 'Ut consequatur quis dolores aut repudiandae facilis eos.'
                       avatar: 'https://source.unsplash.com/random/300x300'
-                      username: loyal.hagenes
-                      email: remington.ondricka@example.org
+                      username: eliane17wHDTo
+                      email: hudson.imani@example.net
                     -
                       id: 33
-                      first_name: Lilian
-                      last_name: Fritsch
-                      status: 'Aut placeat ut pariatur qui quia.'
+                      first_name: Willard
+                      last_name: Pfannerstill
+                      status: 'In aut in aut numquam inventore autem quibusdam.'
                       avatar: 'https://source.unsplash.com/random/300x300'
-                      username: gail.jones
-                      email: lafayette02@example.com
+                      username: sydni.stehrtEN6q
+                      email: kaya59@example.com
                     -
                       id: 34
-                      first_name: Willis
-                      last_name: Baumbach
-                      status: 'Est eaque reiciendis consequatur placeat.'
+                      first_name: Agustina
+                      last_name: Douglas
+                      status: 'Ea aliquam et accusamus dolorum quis cupiditate.'
                       avatar: 'https://source.unsplash.com/random/300x300'
-                      username: amalia.nienow
-                      email: elliot.abbott@example.org
+                      username: dubuque.sigurd8Nlul
+                      email: xokuneva@example.net
                     -
                       id: 35
-                      first_name: Stanley
-                      last_name: Treutel
-                      status: 'Expedita dolorem voluptatibus tempore ullam et.'
+                      first_name: Eldridge
+                      last_name: Davis
+                      status: 'Ab tempora nesciunt alias rem fugit reprehenderit sint.'
                       avatar: 'https://source.unsplash.com/random/300x300'
-                      username: kris.eden
-                      email: damien.sanford@example.org
+                      username: rigoberto31Kod7W
+                      email: spencer.emiliano@example.com
                     -
                       id: 36
-                      first_name: Coty
-                      last_name: Christiansen
-                      status: 'Sed ut nobis dolorem aut qui molestiae sapiente.'
+                      first_name: Jakob
+                      last_name: Will
+                      status: 'Aut exercitationem sint illo necessitatibus consequuntur dolorem et.'
                       avatar: 'https://source.unsplash.com/random/300x300'
-                      username: xarmstrong
-                      email: xarmstrong@example.com
+                      username: consuelo.skilesH4lan
+                      email: cooper.rutherford@example.net
                   first_page_url: 'http://social-network-api.test/api/users?page=1'
                   from: 25
                   next_page_url: 'http://social-network-api.test/api/users?page=4'
@@ -352,100 +472,100 @@ paths:
                     example:
                       -
                         id: 25
-                        first_name: Cassandra
-                        last_name: Rempel
-                        status: 'Beatae inventore aliquam illum quia doloribus.'
+                        first_name: Erich
+                        last_name: Glover
+                        status: 'Quia reiciendis dicta odio eius doloribus.'
                         avatar: 'https://source.unsplash.com/random/300x300'
-                        username: kelton94
-                        email: thompson.dorian@example.net
+                        username: cruickshank.flossieLRIbC
+                        email: elijah.feeney@example.com
                       -
                         id: 26
-                        first_name: Luther
-                        last_name: Larkin
-                        status: 'Id omnis dolores molestias.'
+                        first_name: Eveline
+                        last_name: Hackett
+                        status: 'Architecto deserunt nostrum corporis labore repellat nam sequi.'
                         avatar: 'https://source.unsplash.com/random/300x300'
-                        username: djohnson
-                        email: carmine48@example.com
+                        username: ayana87yhZDW
+                        email: ehowell@example.com
                       -
                         id: 27
-                        first_name: Sylvester
-                        last_name: Schuster
-                        status: 'Beatae velit asperiores dignissimos nisi voluptas odit.'
+                        first_name: Ashtyn
+                        last_name: Braun
+                        status: 'Nesciunt non nesciunt nihil.'
                         avatar: 'https://source.unsplash.com/random/300x300'
-                        username: lchamplin
-                        email: abraham.mante@example.com
+                        username: tstoltenbergmJZvE
+                        email: kian.gibson@example.org
                       -
                         id: 28
-                        first_name: Shana
-                        last_name: Williamson
-                        status: 'Veniam iusto sed repellendus nihil qui quasi cumque.'
+                        first_name: Euna
+                        last_name: Pacocha
+                        status: 'Aut veniam soluta eos omnis.'
                         avatar: 'https://source.unsplash.com/random/300x300'
-                        username: hharris
-                        email: nullrich@example.org
+                        username: ferry.heavenE0dRH
+                        email: king.angus@example.com
                       -
                         id: 29
-                        first_name: Justus
-                        last_name: Block
-                        status: 'Vel labore sint quos dicta fugiat dolorum odio quaerat.'
+                        first_name: Janae
+                        last_name: Schinner
+                        status: 'Est qui placeat et necessitatibus ratione.'
                         avatar: 'https://source.unsplash.com/random/300x300'
-                        username: kiara85
-                        email: itzel56@example.com
+                        username: rutherford.lloydZUObR
+                        email: raquel79@example.org
                       -
                         id: 30
-                        first_name: Jayne
-                        last_name: Hudson
-                        status: 'Nesciunt labore laborum incidunt velit sed voluptas veniam.'
+                        first_name: Jesus
+                        last_name: Schuppe
+                        status: 'Repudiandae rerum et ipsa a labore enim.'
                         avatar: 'https://source.unsplash.com/random/300x300'
-                        username: newell71
-                        email: henri66@example.org
+                        username: kiana.marksqOrAU
+                        email: jamar.kuvalis@example.org
                       -
                         id: 31
-                        first_name: Rafael
-                        last_name: Shanahan
-                        status: 'Distinctio qui itaque sapiente qui aut eius.'
+                        first_name: Rodrigo
+                        last_name: Kiehn
+                        status: 'Omnis expedita necessitatibus dolores et id cum.'
                         avatar: 'https://source.unsplash.com/random/300x300'
-                        username: clarkin
-                        email: harber.emily@example.com
+                        username: ruecker.joeluKtkN
+                        email: wcrooks@example.org
                       -
                         id: 32
-                        first_name: Percy
-                        last_name: Carroll
-                        status: 'Omnis aperiam aut cum repellendus.'
+                        first_name: Eugenia
+                        last_name: Zboncak
+                        status: 'Ut consequatur quis dolores aut repudiandae facilis eos.'
                         avatar: 'https://source.unsplash.com/random/300x300'
-                        username: loyal.hagenes
-                        email: remington.ondricka@example.org
+                        username: eliane17wHDTo
+                        email: hudson.imani@example.net
                       -
                         id: 33
-                        first_name: Lilian
-                        last_name: Fritsch
-                        status: 'Aut placeat ut pariatur qui quia.'
+                        first_name: Willard
+                        last_name: Pfannerstill
+                        status: 'In aut in aut numquam inventore autem quibusdam.'
                         avatar: 'https://source.unsplash.com/random/300x300'
-                        username: gail.jones
-                        email: lafayette02@example.com
+                        username: sydni.stehrtEN6q
+                        email: kaya59@example.com
                       -
                         id: 34
-                        first_name: Willis
-                        last_name: Baumbach
-                        status: 'Est eaque reiciendis consequatur placeat.'
+                        first_name: Agustina
+                        last_name: Douglas
+                        status: 'Ea aliquam et accusamus dolorum quis cupiditate.'
                         avatar: 'https://source.unsplash.com/random/300x300'
-                        username: amalia.nienow
-                        email: elliot.abbott@example.org
+                        username: dubuque.sigurd8Nlul
+                        email: xokuneva@example.net
                       -
                         id: 35
-                        first_name: Stanley
-                        last_name: Treutel
-                        status: 'Expedita dolorem voluptatibus tempore ullam et.'
+                        first_name: Eldridge
+                        last_name: Davis
+                        status: 'Ab tempora nesciunt alias rem fugit reprehenderit sint.'
                         avatar: 'https://source.unsplash.com/random/300x300'
-                        username: kris.eden
-                        email: damien.sanford@example.org
+                        username: rigoberto31Kod7W
+                        email: spencer.emiliano@example.com
                       -
                         id: 36
-                        first_name: Coty
-                        last_name: Christiansen
-                        status: 'Sed ut nobis dolorem aut qui molestiae sapiente.'
+                        first_name: Jakob
+                        last_name: Will
+                        status: 'Aut exercitationem sint illo necessitatibus consequuntur dolorem et.'
                         avatar: 'https://source.unsplash.com/random/300x300'
-                        username: xarmstrong
-                        email: xarmstrong@example.com
+                        username: consuelo.skilesH4lan
+                        email: cooper.rutherford@example.net
                     items:
                       type: object
                   first_page_url:
@@ -499,35 +619,35 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 4
-                  first_name: Vern
-                  last_name: Kilback
-                  status: 'Reprehenderit sit vel impedit ullam quos dolores sed.'
+                  id: 9
+                  first_name: Jakob
+                  last_name: Altenwerth
+                  status: 'Itaque neque odit est.'
                   avatar: 'https://source.unsplash.com/random/300x300'
-                  username: susan74
-                  email: halle07@example.com
+                  username: dickinson.shannaD3iHj
+                  email: cprosacco@example.net
                 properties:
                   id:
                     type: integer
-                    example: 4
+                    example: 9
                   first_name:
                     type: string
-                    example: Vern
+                    example: Jakob
                   last_name:
                     type: string
-                    example: Kilback
+                    example: Altenwerth
                   status:
                     type: string
-                    example: 'Reprehenderit sit vel impedit ullam quos dolores sed.'
+                    example: 'Itaque neque odit est.'
                   avatar:
                     type: string
                     example: 'https://source.unsplash.com/random/300x300'
                   username:
                     type: string
-                    example: susan74
+                    example: dickinson.shannaD3iHj
                   email:
                     type: string
-                    example: halle07@example.com
+                    example: cprosacco@example.net
       tags:
         - Users
       security: []
@@ -536,7 +656,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 4
+        example: 9
         required: true
         schema:
           type: integer
@@ -544,6 +664,9 @@ tags:
   -
     name: Authentication
     description: "\nAPI endpoints for app auth."
+  -
+    name: Follow
+    description: "\nAPI endpoints for all followers functional"
   -
     name: Users
     description: "\nAPI endpoints for users data"

@@ -89,6 +89,25 @@
                                                     </ul>
                             </ul>
                     <ul id="tocify-header-3" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="follow">
+                    <a href="#follow">Follow</a>
+                </li>
+                                    <ul id="tocify-subheader-follow" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="follow-GETapi-followers">
+                        <a href="#follow-GETapi-followers">Return list of authenticated user followers</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="follow-GETapi-following">
+                        <a href="#follow-GETapi-following">Return list of users, which authenticated user following</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="follow-POSTapi-follow--id-">
+                        <a href="#follow-POSTapi-follow--id-">Endpoint for follow user</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="follow-DELETEapi-follow--id-">
+                        <a href="#follow-DELETEapi-follow--id-">Endpoint for unfollow user</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-4" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="users">
                     <a href="#users">Users</a>
                 </li>
@@ -153,11 +172,11 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Accept: application/json" \
     --data "{
     \"first_name\": \"et\",
-    \"last_name\": \"id\",
-    \"username\": \"assumenda\",
-    \"email\": \"quisquam\",
-    \"password\": \"sed\",
-    \"password_confirmation\": \"maiores\"
+    \"last_name\": \"delectus\",
+    \"username\": \"est\",
+    \"email\": \"atque\",
+    \"password\": \"maiores\",
+    \"password_confirmation\": \"delectus\"
 }"
 </code></pre></div>
 
@@ -174,11 +193,11 @@ const headers = {
 
 let body = {
     "first_name": "et",
-    "last_name": "id",
-    "username": "assumenda",
-    "email": "quisquam",
-    "password": "sed",
-    "password_confirmation": "maiores"
+    "last_name": "delectus",
+    "username": "est",
+    "email": "atque",
+    "password": "maiores",
+    "password_confirmation": "delectus"
 };
 
 fetch(url, {
@@ -255,7 +274,7 @@ fetch(url, {
                 <input type="text"
                name="last_name"
                data-endpoint="POSTapi-auth-register"
-               value="id"
+               value="delectus"
                data-component="body" hidden>
     <br>
 
@@ -265,7 +284,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-auth-register"
-               value="assumenda"
+               value="est"
                data-component="body" hidden>
     <br>
 
@@ -275,7 +294,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-auth-register"
-               value="quisquam"
+               value="atque"
                data-component="body" hidden>
     <br>
 
@@ -285,7 +304,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-auth-register"
-               value="sed"
+               value="maiores"
                data-component="body" hidden>
     <br>
 
@@ -295,7 +314,7 @@ fetch(url, {
                 <input type="text"
                name="password_confirmation"
                data-endpoint="POSTapi-auth-register"
-               value="maiores"
+               value="delectus"
                data-component="body" hidden>
     <br>
 
@@ -319,8 +338,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"cupiditate\",
-    \"password\": \"quibusdam\"
+    \"username\": \"placeat\",
+    \"password\": \"consequatur\"
 }"
 </code></pre></div>
 
@@ -336,8 +355,8 @@ const headers = {
 };
 
 let body = {
-    "username": "cupiditate",
-    "password": "quibusdam"
+    "username": "placeat",
+    "password": "consequatur"
 };
 
 fetch(url, {
@@ -404,7 +423,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-auth-login"
-               value="cupiditate"
+               value="placeat"
                data-component="body" hidden>
     <br>
 
@@ -414,7 +433,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-auth-login"
-               value="quibusdam"
+               value="consequatur"
                data-component="body" hidden>
     <br>
 
@@ -629,6 +648,414 @@ access-control-allow-origin: *
         </p>
                 </form>
 
+        <h1 id="follow">Follow</h1>
+
+    <p>API endpoints for all followers functional</p>
+
+            <h2 id="follow-GETapi-followers">Return list of authenticated user followers</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-followers">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "localhost:80/api/followers" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "localhost:80/api/followers"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-followers">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-followers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-followers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-followers"></code></pre>
+</span>
+<span id="execution-error-GETapi-followers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-followers"></code></pre>
+</span>
+<form id="form-GETapi-followers" data-method="GET"
+      data-path="api/followers"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-followers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-followers"
+                    onclick="tryItOut('GETapi-followers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-followers"
+                    onclick="cancelTryOut('GETapi-followers');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-followers" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/followers</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-followers" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-followers"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="follow-GETapi-following">Return list of users, which authenticated user following</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-following">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "localhost:80/api/following" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "localhost:80/api/following"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-following">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-following" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-following"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-following"></code></pre>
+</span>
+<span id="execution-error-GETapi-following" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-following"></code></pre>
+</span>
+<form id="form-GETapi-following" data-method="GET"
+      data-path="api/following"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-following', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-following"
+                    onclick="tryItOut('GETapi-following');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-following"
+                    onclick="cancelTryOut('GETapi-following');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-following" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/following</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-following" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-following"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="follow-POSTapi-follow--id-">Endpoint for follow user</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-follow--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "localhost:80/api/follow/9" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "localhost:80/api/follow/9"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-follow--id-">
+</span>
+<span id="execution-results-POSTapi-follow--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-follow--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-follow--id-"></code></pre>
+</span>
+<span id="execution-error-POSTapi-follow--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-follow--id-"></code></pre>
+</span>
+<form id="form-POSTapi-follow--id-" data-method="POST"
+      data-path="api/follow/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-follow--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-follow--id-"
+                    onclick="tryItOut('POSTapi-follow--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-follow--id-"
+                    onclick="cancelTryOut('POSTapi-follow--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-follow--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/follow/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-follow--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-follow--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="POSTapi-follow--id-"
+               value="9"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the follow.</p>
+            </p>
+                    </form>
+
+            <h2 id="follow-DELETEapi-follow--id-">Endpoint for unfollow user</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-follow--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "localhost:80/api/follow/4" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "localhost:80/api/follow/4"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-follow--id-">
+</span>
+<span id="execution-results-DELETEapi-follow--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-follow--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-follow--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-follow--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-follow--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-follow--id-" data-method="DELETE"
+      data-path="api/follow/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-follow--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-follow--id-"
+                    onclick="tryItOut('DELETEapi-follow--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-follow--id-"
+                    onclick="cancelTryOut('DELETEapi-follow--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-follow--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/follow/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-follow--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="DELETEapi-follow--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEapi-follow--id-"
+               value="4"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the follow.</p>
+            </p>
+                    </form>
+
         <h1 id="users">Users</h1>
 
     <p>API endpoints for users data</p>
@@ -696,111 +1123,111 @@ access-control-allow-origin: *
     &quot;data&quot;: [
         {
             &quot;id&quot;: 25,
-            &quot;first_name&quot;: &quot;Cassandra&quot;,
-            &quot;last_name&quot;: &quot;Rempel&quot;,
-            &quot;status&quot;: &quot;Beatae inventore aliquam illum quia doloribus.&quot;,
+            &quot;first_name&quot;: &quot;Erich&quot;,
+            &quot;last_name&quot;: &quot;Glover&quot;,
+            &quot;status&quot;: &quot;Quia reiciendis dicta odio eius doloribus.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;kelton94&quot;,
-            &quot;email&quot;: &quot;thompson.dorian@example.net&quot;
+            &quot;username&quot;: &quot;cruickshank.flossieLRIbC&quot;,
+            &quot;email&quot;: &quot;elijah.feeney@example.com&quot;
         },
         {
             &quot;id&quot;: 26,
-            &quot;first_name&quot;: &quot;Luther&quot;,
-            &quot;last_name&quot;: &quot;Larkin&quot;,
-            &quot;status&quot;: &quot;Id omnis dolores molestias.&quot;,
+            &quot;first_name&quot;: &quot;Eveline&quot;,
+            &quot;last_name&quot;: &quot;Hackett&quot;,
+            &quot;status&quot;: &quot;Architecto deserunt nostrum corporis labore repellat nam sequi.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;djohnson&quot;,
-            &quot;email&quot;: &quot;carmine48@example.com&quot;
+            &quot;username&quot;: &quot;ayana87yhZDW&quot;,
+            &quot;email&quot;: &quot;ehowell@example.com&quot;
         },
         {
             &quot;id&quot;: 27,
-            &quot;first_name&quot;: &quot;Sylvester&quot;,
-            &quot;last_name&quot;: &quot;Schuster&quot;,
-            &quot;status&quot;: &quot;Beatae velit asperiores dignissimos nisi voluptas odit.&quot;,
+            &quot;first_name&quot;: &quot;Ashtyn&quot;,
+            &quot;last_name&quot;: &quot;Braun&quot;,
+            &quot;status&quot;: &quot;Nesciunt non nesciunt nihil.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;lchamplin&quot;,
-            &quot;email&quot;: &quot;abraham.mante@example.com&quot;
+            &quot;username&quot;: &quot;tstoltenbergmJZvE&quot;,
+            &quot;email&quot;: &quot;kian.gibson@example.org&quot;
         },
         {
             &quot;id&quot;: 28,
-            &quot;first_name&quot;: &quot;Shana&quot;,
-            &quot;last_name&quot;: &quot;Williamson&quot;,
-            &quot;status&quot;: &quot;Veniam iusto sed repellendus nihil qui quasi cumque.&quot;,
+            &quot;first_name&quot;: &quot;Euna&quot;,
+            &quot;last_name&quot;: &quot;Pacocha&quot;,
+            &quot;status&quot;: &quot;Aut veniam soluta eos omnis.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;hharris&quot;,
-            &quot;email&quot;: &quot;nullrich@example.org&quot;
+            &quot;username&quot;: &quot;ferry.heavenE0dRH&quot;,
+            &quot;email&quot;: &quot;king.angus@example.com&quot;
         },
         {
             &quot;id&quot;: 29,
-            &quot;first_name&quot;: &quot;Justus&quot;,
-            &quot;last_name&quot;: &quot;Block&quot;,
-            &quot;status&quot;: &quot;Vel labore sint quos dicta fugiat dolorum odio quaerat.&quot;,
+            &quot;first_name&quot;: &quot;Janae&quot;,
+            &quot;last_name&quot;: &quot;Schinner&quot;,
+            &quot;status&quot;: &quot;Est qui placeat et necessitatibus ratione.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;kiara85&quot;,
-            &quot;email&quot;: &quot;itzel56@example.com&quot;
+            &quot;username&quot;: &quot;rutherford.lloydZUObR&quot;,
+            &quot;email&quot;: &quot;raquel79@example.org&quot;
         },
         {
             &quot;id&quot;: 30,
-            &quot;first_name&quot;: &quot;Jayne&quot;,
-            &quot;last_name&quot;: &quot;Hudson&quot;,
-            &quot;status&quot;: &quot;Nesciunt labore laborum incidunt velit sed voluptas veniam.&quot;,
+            &quot;first_name&quot;: &quot;Jesus&quot;,
+            &quot;last_name&quot;: &quot;Schuppe&quot;,
+            &quot;status&quot;: &quot;Repudiandae rerum et ipsa a labore enim.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;newell71&quot;,
-            &quot;email&quot;: &quot;henri66@example.org&quot;
+            &quot;username&quot;: &quot;kiana.marksqOrAU&quot;,
+            &quot;email&quot;: &quot;jamar.kuvalis@example.org&quot;
         },
         {
             &quot;id&quot;: 31,
-            &quot;first_name&quot;: &quot;Rafael&quot;,
-            &quot;last_name&quot;: &quot;Shanahan&quot;,
-            &quot;status&quot;: &quot;Distinctio qui itaque sapiente qui aut eius.&quot;,
+            &quot;first_name&quot;: &quot;Rodrigo&quot;,
+            &quot;last_name&quot;: &quot;Kiehn&quot;,
+            &quot;status&quot;: &quot;Omnis expedita necessitatibus dolores et id cum.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;clarkin&quot;,
-            &quot;email&quot;: &quot;harber.emily@example.com&quot;
+            &quot;username&quot;: &quot;ruecker.joeluKtkN&quot;,
+            &quot;email&quot;: &quot;wcrooks@example.org&quot;
         },
         {
             &quot;id&quot;: 32,
-            &quot;first_name&quot;: &quot;Percy&quot;,
-            &quot;last_name&quot;: &quot;Carroll&quot;,
-            &quot;status&quot;: &quot;Omnis aperiam aut cum repellendus.&quot;,
+            &quot;first_name&quot;: &quot;Eugenia&quot;,
+            &quot;last_name&quot;: &quot;Zboncak&quot;,
+            &quot;status&quot;: &quot;Ut consequatur quis dolores aut repudiandae facilis eos.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;loyal.hagenes&quot;,
-            &quot;email&quot;: &quot;remington.ondricka@example.org&quot;
+            &quot;username&quot;: &quot;eliane17wHDTo&quot;,
+            &quot;email&quot;: &quot;hudson.imani@example.net&quot;
         },
         {
             &quot;id&quot;: 33,
-            &quot;first_name&quot;: &quot;Lilian&quot;,
-            &quot;last_name&quot;: &quot;Fritsch&quot;,
-            &quot;status&quot;: &quot;Aut placeat ut pariatur qui quia.&quot;,
+            &quot;first_name&quot;: &quot;Willard&quot;,
+            &quot;last_name&quot;: &quot;Pfannerstill&quot;,
+            &quot;status&quot;: &quot;In aut in aut numquam inventore autem quibusdam.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;gail.jones&quot;,
-            &quot;email&quot;: &quot;lafayette02@example.com&quot;
+            &quot;username&quot;: &quot;sydni.stehrtEN6q&quot;,
+            &quot;email&quot;: &quot;kaya59@example.com&quot;
         },
         {
             &quot;id&quot;: 34,
-            &quot;first_name&quot;: &quot;Willis&quot;,
-            &quot;last_name&quot;: &quot;Baumbach&quot;,
-            &quot;status&quot;: &quot;Est eaque reiciendis consequatur placeat.&quot;,
+            &quot;first_name&quot;: &quot;Agustina&quot;,
+            &quot;last_name&quot;: &quot;Douglas&quot;,
+            &quot;status&quot;: &quot;Ea aliquam et accusamus dolorum quis cupiditate.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;amalia.nienow&quot;,
-            &quot;email&quot;: &quot;elliot.abbott@example.org&quot;
+            &quot;username&quot;: &quot;dubuque.sigurd8Nlul&quot;,
+            &quot;email&quot;: &quot;xokuneva@example.net&quot;
         },
         {
             &quot;id&quot;: 35,
-            &quot;first_name&quot;: &quot;Stanley&quot;,
-            &quot;last_name&quot;: &quot;Treutel&quot;,
-            &quot;status&quot;: &quot;Expedita dolorem voluptatibus tempore ullam et.&quot;,
+            &quot;first_name&quot;: &quot;Eldridge&quot;,
+            &quot;last_name&quot;: &quot;Davis&quot;,
+            &quot;status&quot;: &quot;Ab tempora nesciunt alias rem fugit reprehenderit sint.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;kris.eden&quot;,
-            &quot;email&quot;: &quot;damien.sanford@example.org&quot;
+            &quot;username&quot;: &quot;rigoberto31Kod7W&quot;,
+            &quot;email&quot;: &quot;spencer.emiliano@example.com&quot;
         },
         {
             &quot;id&quot;: 36,
-            &quot;first_name&quot;: &quot;Coty&quot;,
-            &quot;last_name&quot;: &quot;Christiansen&quot;,
-            &quot;status&quot;: &quot;Sed ut nobis dolorem aut qui molestiae sapiente.&quot;,
+            &quot;first_name&quot;: &quot;Jakob&quot;,
+            &quot;last_name&quot;: &quot;Will&quot;,
+            &quot;status&quot;: &quot;Aut exercitationem sint illo necessitatibus consequuntur dolorem et.&quot;,
             &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-            &quot;username&quot;: &quot;xarmstrong&quot;,
-            &quot;email&quot;: &quot;xarmstrong@example.com&quot;
+            &quot;username&quot;: &quot;consuelo.skilesH4lan&quot;,
+            &quot;email&quot;: &quot;cooper.rutherford@example.net&quot;
         }
     ],
     &quot;first_page_url&quot;: &quot;http://social-network-api.test/api/users?page=1&quot;,
@@ -888,14 +1315,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "localhost:80/api/users/4" \
+    --get "localhost:80/api/users/9" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "localhost:80/api/users/4"
+    "localhost:80/api/users/9"
 );
 
 const headers = {
@@ -927,13 +1354,13 @@ access-control-allow-origin: *
         </details>         <pre>
 
 <code class="language-json">{
-    &quot;id&quot;: 4,
-    &quot;first_name&quot;: &quot;Vern&quot;,
-    &quot;last_name&quot;: &quot;Kilback&quot;,
-    &quot;status&quot;: &quot;Reprehenderit sit vel impedit ullam quos dolores sed.&quot;,
+    &quot;id&quot;: 9,
+    &quot;first_name&quot;: &quot;Jakob&quot;,
+    &quot;last_name&quot;: &quot;Altenwerth&quot;,
+    &quot;status&quot;: &quot;Itaque neque odit est.&quot;,
     &quot;avatar&quot;: &quot;https://source.unsplash.com/random/300x300&quot;,
-    &quot;username&quot;: &quot;susan74&quot;,
-    &quot;email&quot;: &quot;halle07@example.com&quot;
+    &quot;username&quot;: &quot;dickinson.shannaD3iHj&quot;,
+    &quot;email&quot;: &quot;cprosacco@example.net&quot;
 }</code>
  </pre>
     </span>
@@ -982,7 +1409,7 @@ access-control-allow-origin: *
                 <input type="number"
                name="id"
                data-endpoint="GETapi-users--id-"
-               value="4"
+               value="9"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>

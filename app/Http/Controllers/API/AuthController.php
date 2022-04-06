@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Hash;
  *
  * API endpoints for app auth.
  */
+
+// TODO: Вынести логику из контроллера в сервисы
 class AuthController extends Controller
 {
     /**
@@ -62,12 +64,12 @@ class AuthController extends Controller
         $user = User::where('username', $request['username'])->first();
 
         if (!$user) {
-            $response = "User not found";
+            $response = ["message" => "User not found"];
             return response($response, 404);
         }
 
         if (!Hash::check($request->password, $user->password)) {
-            $response = "Invalid password";
+            $response = ["message" => "Invalid password"];
             return response($response, 400);
         }
 
@@ -83,7 +85,7 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
-        $response = "Logged out";
+        $response = ["message" => "Logged out"];
 
         return response($response);
     }

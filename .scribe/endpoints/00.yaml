@@ -29,35 +29,35 @@ endpoints:
         name: last_name
         description: ''
         required: true
-        example: id
+        example: delectus
         type: string
         custom: []
       username:
         name: username
         description: ''
         required: true
-        example: assumenda
+        example: est
         type: string
         custom: []
       email:
         name: email
         description: ''
         required: true
-        example: quisquam
+        example: atque
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: sed
+        example: maiores
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: ''
         required: true
-        example: maiores
+        example: delectus
         type: string
         custom: []
     responses:
@@ -89,14 +89,14 @@ endpoints:
         name: username
         description: ''
         required: true
-        example: cupiditate
+        example: placeat
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: quibusdam
+        example: consequatur
         type: string
         custom: []
     responses:
