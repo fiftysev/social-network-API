@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Social-Network-API",
-        "_postman_id": "2c971731-69bc-46b6-b0c7-bede3ffb40e4",
+        "_postman_id": "e44c0022-3f8b-47c4-9e75-548e7e3377c8",
         "description": "Social Network API for Front-end learning projects",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"first_name\":\"odit\",\"last_name\":\"consequatur\",\"username\":\"saepe\",\"email\":\"et\",\"password\":\"nulla\",\"password_confirmation\":\"praesentium\"}"
+                            "raw": "{\"first_name\":\"et\",\"last_name\":\"id\",\"username\":\"assumenda\",\"email\":\"quisquam\",\"password\":\"sed\",\"password_confirmation\":\"maiores\"}"
                         },
                         "description": "",
                         "auth": {
@@ -79,7 +79,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"ut\",\"password\":\"labore\"}"
+                            "raw": "{\"username\":\"cupiditate\",\"password\":\"quibusdam\"}"
                         },
                         "description": "",
                         "auth": {
@@ -96,7 +96,7 @@
                     ]
                 },
                 {
-                    "name": "api\/auth\/logout",
+                    "name": "Logout current auth user",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -116,10 +116,52 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
                         }
+                    ]
+                },
+                {
+                    "name": "Get info about current auth user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/me",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/me"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
                     },
                     "response": [
                         {
@@ -205,7 +247,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "57"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -213,7 +255,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"current_page\":3,\"data\":[{\"id\":25,\"first_name\":\"Kristofer\",\"last_name\":\"Davis\",\"status\":\"Impedit qui debitis delectus dignissimos architecto quos.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"kebert\",\"email\":\"walker.adelia@example.com\"},{\"id\":26,\"first_name\":\"Derrick\",\"last_name\":\"Leuschke\",\"status\":\"Non repellat illo optio debitis voluptatem omnis.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"treutel.friedrich\",\"email\":\"qblock@example.org\"},{\"id\":27,\"first_name\":\"Beverly\",\"last_name\":\"Quitzon\",\"status\":\"Omnis enim quod tempora earum ex.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"ykeeling\",\"email\":\"hank09@example.net\"},{\"id\":28,\"first_name\":\"Arno\",\"last_name\":\"Cummerata\",\"status\":\"Qui explicabo minima facere neque dolor eveniet.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"kellie24\",\"email\":\"drath@example.net\"},{\"id\":29,\"first_name\":\"Aglae\",\"last_name\":\"Shanahan\",\"status\":\"Omnis eaque ea natus.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"obogan\",\"email\":\"beverly38@example.net\"},{\"id\":30,\"first_name\":\"Garett\",\"last_name\":\"Orn\",\"status\":\"Odit consequatur ea voluptatibus nemo accusamus ut eum.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"eloisa.labadie\",\"email\":\"queenie92@example.com\"},{\"id\":31,\"first_name\":\"Lue\",\"last_name\":\"Stiedemann\",\"status\":\"Voluptate tempora sit ut adipisci.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"foreilly\",\"email\":\"bryce92@example.net\"},{\"id\":32,\"first_name\":\"Kelton\",\"last_name\":\"Zemlak\",\"status\":\"Quae quibusdam commodi voluptatum aliquid aut suscipit.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"bechtelar.madilyn\",\"email\":\"gaylord.marguerite@example.net\"},{\"id\":33,\"first_name\":\"Hans\",\"last_name\":\"Gutkowski\",\"status\":\"Mollitia autem odit ipsum officiis repellat nobis vel.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"rex50\",\"email\":\"jazmyn.roberts@example.net\"},{\"id\":34,\"first_name\":\"Roman\",\"last_name\":\"Hermann\",\"status\":\"Saepe ea soluta atque tempora sunt consequatur aliquid.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"brekke.donna\",\"email\":\"frunte@example.org\"},{\"id\":35,\"first_name\":\"Rey\",\"last_name\":\"Beer\",\"status\":\"Nostrum sunt autem accusantium.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"walker.marian\",\"email\":\"leonor77@example.net\"},{\"id\":36,\"first_name\":\"Kobe\",\"last_name\":\"Okuneva\",\"status\":\"Veniam quia unde alias voluptatem.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"kacie75\",\"email\":\"myra37@example.org\"}],\"first_page_url\":\"http:\\\/\\\/social-network-api.test\\\/api\\\/users?page=1\",\"from\":25,\"next_page_url\":\"http:\\\/\\\/social-network-api.test\\\/api\\\/users?page=4\",\"path\":\"http:\\\/\\\/social-network-api.test\\\/api\\\/users\",\"per_page\":12,\"prev_page_url\":\"http:\\\/\\\/social-network-api.test\\\/api\\\/users?page=2\",\"to\":36}",
+                            "body": "{\"current_page\":3,\"data\":[{\"id\":25,\"first_name\":\"Cassandra\",\"last_name\":\"Rempel\",\"status\":\"Beatae inventore aliquam illum quia doloribus.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"kelton94\",\"email\":\"thompson.dorian@example.net\"},{\"id\":26,\"first_name\":\"Luther\",\"last_name\":\"Larkin\",\"status\":\"Id omnis dolores molestias.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"djohnson\",\"email\":\"carmine48@example.com\"},{\"id\":27,\"first_name\":\"Sylvester\",\"last_name\":\"Schuster\",\"status\":\"Beatae velit asperiores dignissimos nisi voluptas odit.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"lchamplin\",\"email\":\"abraham.mante@example.com\"},{\"id\":28,\"first_name\":\"Shana\",\"last_name\":\"Williamson\",\"status\":\"Veniam iusto sed repellendus nihil qui quasi cumque.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"hharris\",\"email\":\"nullrich@example.org\"},{\"id\":29,\"first_name\":\"Justus\",\"last_name\":\"Block\",\"status\":\"Vel labore sint quos dicta fugiat dolorum odio quaerat.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"kiara85\",\"email\":\"itzel56@example.com\"},{\"id\":30,\"first_name\":\"Jayne\",\"last_name\":\"Hudson\",\"status\":\"Nesciunt labore laborum incidunt velit sed voluptas veniam.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"newell71\",\"email\":\"henri66@example.org\"},{\"id\":31,\"first_name\":\"Rafael\",\"last_name\":\"Shanahan\",\"status\":\"Distinctio qui itaque sapiente qui aut eius.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"clarkin\",\"email\":\"harber.emily@example.com\"},{\"id\":32,\"first_name\":\"Percy\",\"last_name\":\"Carroll\",\"status\":\"Omnis aperiam aut cum repellendus.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"loyal.hagenes\",\"email\":\"remington.ondricka@example.org\"},{\"id\":33,\"first_name\":\"Lilian\",\"last_name\":\"Fritsch\",\"status\":\"Aut placeat ut pariatur qui quia.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"gail.jones\",\"email\":\"lafayette02@example.com\"},{\"id\":34,\"first_name\":\"Willis\",\"last_name\":\"Baumbach\",\"status\":\"Est eaque reiciendis consequatur placeat.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"amalia.nienow\",\"email\":\"elliot.abbott@example.org\"},{\"id\":35,\"first_name\":\"Stanley\",\"last_name\":\"Treutel\",\"status\":\"Expedita dolorem voluptatibus tempore ullam et.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"kris.eden\",\"email\":\"damien.sanford@example.org\"},{\"id\":36,\"first_name\":\"Coty\",\"last_name\":\"Christiansen\",\"status\":\"Sed ut nobis dolorem aut qui molestiae sapiente.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"xarmstrong\",\"email\":\"xarmstrong@example.com\"}],\"first_page_url\":\"http:\\\/\\\/social-network-api.test\\\/api\\\/users?page=1\",\"from\":25,\"next_page_url\":\"http:\\\/\\\/social-network-api.test\\\/api\\\/users?page=4\",\"path\":\"http:\\\/\\\/social-network-api.test\\\/api\\\/users\",\"per_page\":12,\"prev_page_url\":\"http:\\\/\\\/social-network-api.test\\\/api\\\/users?page=2\",\"to\":36}",
                             "name": ""
                         }
                     ]
@@ -230,7 +272,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "9",
+                                    "value": "4",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -269,7 +311,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "56"
+                                    "value": "58"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -277,7 +319,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"id\":9,\"first_name\":\"Penelope\",\"last_name\":\"Jones\",\"status\":\"Debitis omnis explicabo cum assumenda.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"eldora.hamill\",\"email\":\"angelita.mcdermott@example.com\"}",
+                            "body": "{\"id\":4,\"first_name\":\"Vern\",\"last_name\":\"Kilback\",\"status\":\"Reprehenderit sit vel impedit ullam quos dolores sed.\",\"avatar\":\"https:\\\/\\\/source.unsplash.com\\\/random\\\/300x300\",\"username\":\"susan74\",\"email\":\"halle07@example.com\"}",
                             "name": ""
                         }
                     ]

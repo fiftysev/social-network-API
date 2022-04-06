@@ -24,5 +24,6 @@ Route::controller(UsersController::class)->prefix('users')->group(function () {
 Route::controller(AuthController::class)->prefix('auth')->group(function () {
     Route::post('register', 'register');
     Route::post('login', 'login');
-    Route::get('logout', 'logout')->middleware('auth:api');
+    Route::get('logout', 'logout')->middleware('auth:sanctum');
+    Route::get('me', 'me')->middleware('auth:sanctum');
 });

@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Hash;
  *
  * API endpoints for app auth.
  */
-
 class AuthController extends Controller
 {
     /**
@@ -42,8 +41,9 @@ class AuthController extends Controller
         $request['password'] = Hash::make($request['password']);
         $user = User::query()->create($request->all());
 
-        $token = $user->createToken('API password grant client')->accessToken;
+        $token = $user->createToken($request->username)->plainTextToken;
         $response = ['token' => $token];
+
         return response($response, 201);
     }
 
@@ -71,18 +71,30 @@ class AuthController extends Controller
             return response($response, 400);
         }
 
-        $token = $user->createToken('API password grant client')->accessToken;
+        $token = $user->createToken($request->username)->plainTextToken;
         $response = ['token' => $token];
         return response($response);
     }
 
+    /**
+     * Logout current auth user
+     * @authenticated
+     */
     public function logout(Request $request)
     {
-       $token = $request->user()->token();
-       $token->revoke();
+        $request->user()->currentAccessToken()->delete();
+        $response = "Logged out";
 
-       $response = "Logged out";
+        return response($response);
+    }
 
-       return response($response);
+
+    /**
+     * Get info about current auth user.
+     * @authenticated
+     */
+    public function me(Request $request)
+    {
+        return response($request->user());
     }
 }
