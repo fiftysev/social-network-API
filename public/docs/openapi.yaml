@@ -1,0 +1,362 @@
+openapi: 3.0.3
+info:
+  title: Social-Network-API
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://social-network-API.test'
+paths:
+  /api/users:
+    get:
+      summary: 'All users list'
+      description: ''
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Current page number'
+          example: 3
+          required: false
+          schema:
+            type: integer
+            description: 'Current page number'
+            example: 3
+        -
+          in: query
+          name: per_page
+          description: 'Page size'
+          example: 12
+          required: false
+          schema:
+            type: integer
+            description: 'Page size'
+            example: 12
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  current_page: 3
+                  data:
+                    -
+                      id: 25
+                      first_name: Nigel
+                      last_name: Baumbach
+                      status: 'Ut quidem sint ut accusamus tempora quia.'
+                      avatar: 'https://source.unsplash.com/random/300x300'
+                      username: goldner.terrill
+                      email: pcummerata@example.org
+                    -
+                      id: 26
+                      first_name: Noemy
+                      last_name: Wunsch
+                      status: 'Non dolor nemo illo molestiae mollitia.'
+                      avatar: 'https://source.unsplash.com/random/300x300'
+                      username: leo92
+                      email: xpollich@example.net
+                    -
+                      id: 27
+                      first_name: Chelsey
+                      last_name: Veum
+                      status: 'Voluptate est dolorem saepe accusamus.'
+                      avatar: 'https://source.unsplash.com/random/300x300'
+                      username: maryam67
+                      email: stiedemann.loyce@example.com
+                    -
+                      id: 28
+                      first_name: Dangelo
+                      last_name: Kuphal
+                      status: 'Cum voluptatem eum quia similique et quibusdam sit.'
+                      avatar: 'https://source.unsplash.com/random/300x300'
+                      username: kcollins
+                      email: kuhlman.willie@example.net
+                    -
+                      id: 29
+                      first_name: Davion
+                      last_name: Bogan
+                      status: 'Architecto omnis omnis inventore quisquam temporibus.'
+                      avatar: 'https://source.unsplash.com/random/300x300'
+                      username: gabbott
+                      email: bella77@example.com
+                    -
+                      id: 30
+                      first_name: Francisco
+                      last_name: Effertz
+                      status: 'Dolores soluta enim est sit omnis autem nihil.'
+                      avatar: 'https://source.unsplash.com/random/300x300'
+                      username: alice07
+                      email: bobbie.schamberger@example.net
+                    -
+                      id: 31
+                      first_name: Joany
+                      last_name: Gislason
+                      status: 'Esse et eum nihil aspernatur quo soluta aliquam est.'
+                      avatar: 'https://source.unsplash.com/random/300x300'
+                      username: rosalinda.flatley
+                      email: dicki.lurline@example.com
+                    -
+                      id: 32
+                      first_name: Delia
+                      last_name: Bernier
+                      status: 'Iusto exercitationem voluptatem ex alias.'
+                      avatar: 'https://source.unsplash.com/random/300x300'
+                      username: qromaguera
+                      email: oflatley@example.org
+                    -
+                      id: 33
+                      first_name: Eula
+                      last_name: Wehner
+                      status: 'Ut perspiciatis corporis quos ab ut.'
+                      avatar: 'https://source.unsplash.com/random/300x300'
+                      username: stanley93
+                      email: fae.bogan@example.com
+                    -
+                      id: 34
+                      first_name: Ivy
+                      last_name: Lueilwitz
+                      status: 'Neque molestiae rem et molestiae quasi magni.'
+                      avatar: 'https://source.unsplash.com/random/300x300'
+                      username: rbauch
+                      email: carroll.edmund@example.net
+                    -
+                      id: 35
+                      first_name: Myles
+                      last_name: Christiansen
+                      status: 'Voluptatem similique et debitis modi numquam.'
+                      avatar: 'https://source.unsplash.com/random/300x300'
+                      username: onie79
+                      email: delilah.welch@example.net
+                    -
+                      id: 36
+                      first_name: Constance
+                      last_name: Pfeffer
+                      status: 'Aspernatur ullam et quo officiis dolores aut ea.'
+                      avatar: 'https://source.unsplash.com/random/300x300'
+                      username: willis.farrell
+                      email: peyton.rogahn@example.com
+                  first_page_url: 'http://social-network-api.test/api/users?page=1'
+                  from: 25
+                  next_page_url: 'http://social-network-api.test/api/users?page=4'
+                  path: 'http://social-network-api.test/api/users'
+                  per_page: 12
+                  prev_page_url: 'http://social-network-api.test/api/users?page=2'
+                  to: 36
+                properties:
+                  current_page:
+                    type: integer
+                    example: 3
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 25
+                        first_name: Nigel
+                        last_name: Baumbach
+                        status: 'Ut quidem sint ut accusamus tempora quia.'
+                        avatar: 'https://source.unsplash.com/random/300x300'
+                        username: goldner.terrill
+                        email: pcummerata@example.org
+                      -
+                        id: 26
+                        first_name: Noemy
+                        last_name: Wunsch
+                        status: 'Non dolor nemo illo molestiae mollitia.'
+                        avatar: 'https://source.unsplash.com/random/300x300'
+                        username: leo92
+                        email: xpollich@example.net
+                      -
+                        id: 27
+                        first_name: Chelsey
+                        last_name: Veum
+                        status: 'Voluptate est dolorem saepe accusamus.'
+                        avatar: 'https://source.unsplash.com/random/300x300'
+                        username: maryam67
+                        email: stiedemann.loyce@example.com
+                      -
+                        id: 28
+                        first_name: Dangelo
+                        last_name: Kuphal
+                        status: 'Cum voluptatem eum quia similique et quibusdam sit.'
+                        avatar: 'https://source.unsplash.com/random/300x300'
+                        username: kcollins
+                        email: kuhlman.willie@example.net
+                      -
+                        id: 29
+                        first_name: Davion
+                        last_name: Bogan
+                        status: 'Architecto omnis omnis inventore quisquam temporibus.'
+                        avatar: 'https://source.unsplash.com/random/300x300'
+                        username: gabbott
+                        email: bella77@example.com
+                      -
+                        id: 30
+                        first_name: Francisco
+                        last_name: Effertz
+                        status: 'Dolores soluta enim est sit omnis autem nihil.'
+                        avatar: 'https://source.unsplash.com/random/300x300'
+                        username: alice07
+                        email: bobbie.schamberger@example.net
+                      -
+                        id: 31
+                        first_name: Joany
+                        last_name: Gislason
+                        status: 'Esse et eum nihil aspernatur quo soluta aliquam est.'
+                        avatar: 'https://source.unsplash.com/random/300x300'
+                        username: rosalinda.flatley
+                        email: dicki.lurline@example.com
+                      -
+                        id: 32
+                        first_name: Delia
+                        last_name: Bernier
+                        status: 'Iusto exercitationem voluptatem ex alias.'
+                        avatar: 'https://source.unsplash.com/random/300x300'
+                        username: qromaguera
+                        email: oflatley@example.org
+                      -
+                        id: 33
+                        first_name: Eula
+                        last_name: Wehner
+                        status: 'Ut perspiciatis corporis quos ab ut.'
+                        avatar: 'https://source.unsplash.com/random/300x300'
+                        username: stanley93
+                        email: fae.bogan@example.com
+                      -
+                        id: 34
+                        first_name: Ivy
+                        last_name: Lueilwitz
+                        status: 'Neque molestiae rem et molestiae quasi magni.'
+                        avatar: 'https://source.unsplash.com/random/300x300'
+                        username: rbauch
+                        email: carroll.edmund@example.net
+                      -
+                        id: 35
+                        first_name: Myles
+                        last_name: Christiansen
+                        status: 'Voluptatem similique et debitis modi numquam.'
+                        avatar: 'https://source.unsplash.com/random/300x300'
+                        username: onie79
+                        email: delilah.welch@example.net
+                      -
+                        id: 36
+                        first_name: Constance
+                        last_name: Pfeffer
+                        status: 'Aspernatur ullam et quo officiis dolores aut ea.'
+                        avatar: 'https://source.unsplash.com/random/300x300'
+                        username: willis.farrell
+                        email: peyton.rogahn@example.com
+                    items:
+                      type: object
+                  first_page_url:
+                    type: string
+                    example: 'http://social-network-api.test/api/users?page=1'
+                  from:
+                    type: integer
+                    example: 25
+                  next_page_url:
+                    type: string
+                    example: 'http://social-network-api.test/api/users?page=4'
+                  path:
+                    type: string
+                    example: 'http://social-network-api.test/api/users'
+                  per_page:
+                    type: integer
+                    example: 12
+                  prev_page_url:
+                    type: string
+                    example: 'http://social-network-api.test/api/users?page=2'
+                  to:
+                    type: integer
+                    example: 36
+      tags:
+        - Users
+      security: []
+  '/api/users/{id}':
+    get:
+      summary: 'Get user by id'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 13
+                  first_name: Dayton
+                  last_name: Little
+                  status: 'Deserunt ut dolorum saepe aliquam alias qui.'
+                  avatar: 'https://source.unsplash.com/random/300x300'
+                  username: tremayne35
+                  email: kiarra34@example.net
+                properties:
+                  id:
+                    type: integer
+                    example: 13
+                  first_name:
+                    type: string
+                    example: Dayton
+                  last_name:
+                    type: string
+                    example: Little
+                  status:
+                    type: string
+                    example: 'Deserunt ut dolorum saepe aliquam alias qui.'
+                  avatar:
+                    type: string
+                    example: 'https://source.unsplash.com/random/300x300'
+                  username:
+                    type: string
+                    example: tremayne35
+                  email:
+                    type: string
+                    example: kiarra34@example.net
+      tags:
+        - Users
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 13
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Users
+    description: "\nAPI endpoints for users data"
