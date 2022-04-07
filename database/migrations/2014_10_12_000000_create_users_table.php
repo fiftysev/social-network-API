@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('last_name')->default("");
             $table->tinyText('status')->nullable();
 
-            $table->longText('avatar')->default("https://source.unsplash.com/random/300x300");
-            $table->longText('profile_background')->default('http://source.unsplash.com/random/1200x600');
+            $table->longText('avatar')->nullable();
+            $table->longText('profile_background')->nullable();
 
             $table->string('username')->unique()->default("");
             $table->string('email')->unique()->nullable();

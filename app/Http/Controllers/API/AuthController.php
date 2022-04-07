@@ -50,7 +50,7 @@ class AuthController extends Controller
 
         if ($file = $request->file('avatar')) {
             $filename = $user->id.$file->getClientOriginalName();
-            $file->storeAs('avatars/'.$user->id, $filename, 's3');
+            $file->storePubliclyAs('avatars/'.$user->id, $filename, 's3');
             $user->update([
                 'avatar' => $filename
             ]);
@@ -58,7 +58,7 @@ class AuthController extends Controller
 
         if ($file = $request->file('profile_background')) {
             $filename = $user->id.$file->getClientOriginalName();
-            $file->storeAs('profile_backgrounds/'.$user->id, $filename, 's3');
+            $file->storePubliclyAs('profile_backgrounds/'.$user->id, $filename, 's3');
             $user->update([
                 'profile_background' => $filename
             ]);
