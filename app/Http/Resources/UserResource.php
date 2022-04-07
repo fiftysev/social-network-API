@@ -20,9 +20,21 @@ class UserResource extends JsonResource
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'username' => $this->username,
-            'avatar' => \Storage::disk('s3')->url("avatars/$this->id/$this->avatar"),
             'status' => $this->status,
             'followed' => $this->when(auth()->check(), $this->followed),
+            'avatar' =>
+                $this
+                    ->when(
+                        $this->avatar,
+                        \Storage::disk('s3')->url("avatars/$this->id/$this->avatar")
+                    ),
+            'profile_background' =>
+                $this
+                    ->when(
+                        $this->profile_background,
+                        \Storage::disk('s3')
+                            ->url("profile_backgrounds/$this->id/$this->profile_background")
+                    ),
         ];
     }
 }

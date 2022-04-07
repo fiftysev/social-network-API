@@ -26,6 +26,8 @@ class AuthController extends Controller
      * @bodyParam email string required
      * @bodyParam password string required
      * @bodyParam password_confirmation string required
+     * @bodyParam profile_background file
+     * @bodyParam avatar file
      *
      * @response 201 scenario=Successfully registered {
      *  "token": $10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC
