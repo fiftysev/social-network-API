@@ -27,7 +27,7 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        return UserResource::collection(User::simplePaginate(
+        return UserResource::collection(User::query()->simplePaginate(
             $perPage = (int)$request->query('per_page', 15)
         ));
     }
@@ -37,20 +37,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        return User::findOrFail($id);
+        return new UserResource(User::query()->findOrFail($id));
     }
 
-    public function addProfileBackground(Request $request)
-    {
-        if ($request->hasFile('background')) {
-            \Storage::disk('s3')->put('images', $request->background);
-        }
-
-        return 'Wassup';
-    }
-
-    public function getProfileBackground(Request $request)
-    {
-        return Storage::disk('s3')->response("images/pp7JsFsp07qrR8jzbQMQcKUCxlEh7JaIe9JfQ1p5.png");
-    }
 }
