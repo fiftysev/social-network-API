@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use function PHPUnit\Framework\once;
 
 /**
  * @group Authentication
@@ -37,11 +38,31 @@ class AuthController extends Controller
             'last_name' => 'required|string|max:64',
             'username' => 'required|string|max:64|unique:users',
             'email' => 'required|string|max:256|email|unique:users',
-            'password' => 'required|string|min:8|max:24|confirmed'
+            'password' => 'required|string|min:8|max:24|confirmed',
+            'profile_background' => 'image|mimes:jpg,png|max:2048',
+            'avatar' => 'image|mimes:jpg,png|max:2048'
         ]);
+
+
 
         $request['password'] = Hash::make($request['password']);
         $user = User::query()->create($request->all());
+
+        if ($file = $request->file('avatar')) {
+            $filename = $user->id.$file->getClientOriginalName();
+            $file->storeAs('avatars/'.$user->id, $filename, 's3');
+            $user->update([
+                'avatar' => $filename
+            ]);
+        }
+
+        if ($file = $request->file('profile_background')) {
+            $filename = $user->id.$file->getClientOriginalName();
+            $file->storeAs('profile_backgrounds/'.$user->id, $filename, 's3');
+            $user->update([
+                'profile_background' => $filename
+            ]);
+        }
 
         $token = $user->createToken($request->username)->plainTextToken;
         $response = ['token' => $token];
