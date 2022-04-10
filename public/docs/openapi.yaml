@@ -1,0 +1,706 @@
+openapi: 3.0.3
+info:
+  title: Social-Network-API
+  description: 'Social Network API for Front-end learning projects'
+  version: 1.0.0
+servers:
+  -
+    url: 'localhost:80'
+paths:
+  /api/auth/register:
+    post:
+      summary: 'Register new user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        201:
+          description: Successfully
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "registered {\n \"token\": $10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC\n}"
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: ''
+                  example: aliquam
+                last_name:
+                  type: string
+                  description: ''
+                  example: tenetur
+                username:
+                  type: string
+                  description: ''
+                  example: aspernatur
+                email:
+                  type: string
+                  description: ''
+                  example: assumenda
+                password:
+                  type: string
+                  description: ''
+                  example: mollitia
+                password_confirmation:
+                  type: string
+                  description: ''
+                  example: harum
+                profile_background:
+                  type: string
+                  format: binary
+                  description: ''
+                avatar:
+                  type: string
+                  format: binary
+                  description: ''
+              required:
+                - first_name
+                - last_name
+                - username
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/auth/login:
+    post:
+      summary: 'Login user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successfully
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "logged in {\n \"token\": $10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC\n}"
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: ''
+                  example: aut
+                password:
+                  type: string
+                  description: ''
+                  example: iste
+              required:
+                - username
+                - password
+      security: []
+  /api/auth/logout:
+    get:
+      summary: 'Logout current auth user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Authentication
+  /api/auth/me:
+    get:
+      summary: 'Get info about current auth user.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Authentication
+  /api/followers:
+    get:
+      summary: 'Return list of authenticated user followers'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Follow
+  /api/following:
+    get:
+      summary: 'Return list of users, which authenticated user following'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Follow
+  '/api/follow/{id}':
+    post:
+      summary: 'Endpoint for follow user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Follow
+    delete:
+      summary: 'Endpoint for unfollow user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Follow
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the follow.'
+        example: 15
+        required: true
+        schema:
+          type: integer
+  /api/users:
+    get:
+      summary: 'All users list'
+      description: ''
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Current page number'
+          example: 3
+          required: false
+          schema:
+            type: integer
+            description: 'Current page number'
+            example: 3
+        -
+          in: query
+          name: per_page
+          description: 'Page size'
+          example: 12
+          required: false
+          schema:
+            type: integer
+            description: 'Page size'
+            example: 12
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 25
+                      first_name: Melany
+                      last_name: Kirlin
+                      username: labadie.loganwHLa3
+                      status: 'Suscipit qui adipisci voluptatem quis quia et sed.'
+                    -
+                      id: 26
+                      first_name: Tommie
+                      last_name: Price
+                      username: tillman94ULKWs
+                      status: 'Accusamus sed rerum ducimus distinctio et provident autem.'
+                    -
+                      id: 27
+                      first_name: Ashly
+                      last_name: Kohler
+                      username: porter.kutchfY2sK
+                      status: 'Cumque aut quae laboriosam nobis aut.'
+                    -
+                      id: 28
+                      first_name: Afton
+                      last_name: Spencer
+                      username: ruben64DWZYB
+                      status: 'Sed molestias et qui expedita ex illum exercitationem.'
+                    -
+                      id: 29
+                      first_name: Wendy
+                      last_name: Kozey
+                      username: dmedhurstOiNVk
+                      status: 'Esse nihil quia ut esse pariatur dolor.'
+                    -
+                      id: 30
+                      first_name: Blake
+                      last_name: Conn
+                      username: hans.dooleyKhYBW
+                      status: 'Dolorem assumenda tempora adipisci et.'
+                    -
+                      id: 31
+                      first_name: Josiah
+                      last_name: Marquardt
+                      username: stephen.crist5Wixv
+                      status: 'Dolorem necessitatibus rerum possimus unde quis.'
+                    -
+                      id: 32
+                      first_name: Natasha
+                      last_name: Bergnaum
+                      username: mathew.trompk3OnY
+                      status: 'Perferendis quas possimus laborum consequatur consectetur sint voluptatibus.'
+                    -
+                      id: 33
+                      first_name: Mckenna
+                      last_name: Goyette
+                      username: eulalia.hegmannfSHnP
+                      status: 'Mollitia magni dolor molestias vel.'
+                    -
+                      id: 34
+                      first_name: Madalyn
+                      last_name: Conroy
+                      username: cleve.hegmannZap5l
+                      status: 'Quia nisi qui ut dolorem eos veritatis cum maiores.'
+                    -
+                      id: 35
+                      first_name: Lance
+                      last_name: Armstrong
+                      username: king02vJowq
+                      status: 'Quod iste quia numquam culpa velit eveniet voluptas.'
+                    -
+                      id: 36
+                      first_name: Duane
+                      last_name: Boyle
+                      username: olson.christianaYa28J
+                      status: 'Quam quaerat aperiam soluta et fuga quaerat.'
+                  links:
+                    first: 'http://social-network-api.test/api/users?page=1'
+                    last: 'http://social-network-api.test/api/users?page=9'
+                    prev: 'http://social-network-api.test/api/users?page=2'
+                    next: 'http://social-network-api.test/api/users?page=4'
+                  meta:
+                    current_page: 3
+                    from: 25
+                    last_page: 9
+                    links:
+                      -
+                        url: 'http://social-network-api.test/api/users?page=2'
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://social-network-api.test/api/users?page=1'
+                        label: '1'
+                        active: false
+                      -
+                        url: 'http://social-network-api.test/api/users?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'http://social-network-api.test/api/users?page=3'
+                        label: '3'
+                        active: true
+                      -
+                        url: 'http://social-network-api.test/api/users?page=4'
+                        label: '4'
+                        active: false
+                      -
+                        url: 'http://social-network-api.test/api/users?page=5'
+                        label: '5'
+                        active: false
+                      -
+                        url: 'http://social-network-api.test/api/users?page=6'
+                        label: '6'
+                        active: false
+                      -
+                        url: 'http://social-network-api.test/api/users?page=7'
+                        label: '7'
+                        active: false
+                      -
+                        url: 'http://social-network-api.test/api/users?page=8'
+                        label: '8'
+                        active: false
+                      -
+                        url: 'http://social-network-api.test/api/users?page=9'
+                        label: '9'
+                        active: false
+                      -
+                        url: 'http://social-network-api.test/api/users?page=4'
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://social-network-api.test/api/users'
+                    per_page: 12
+                    to: 36
+                    total: 100
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 25
+                        first_name: Melany
+                        last_name: Kirlin
+                        username: labadie.loganwHLa3
+                        status: 'Suscipit qui adipisci voluptatem quis quia et sed.'
+                      -
+                        id: 26
+                        first_name: Tommie
+                        last_name: Price
+                        username: tillman94ULKWs
+                        status: 'Accusamus sed rerum ducimus distinctio et provident autem.'
+                      -
+                        id: 27
+                        first_name: Ashly
+                        last_name: Kohler
+                        username: porter.kutchfY2sK
+                        status: 'Cumque aut quae laboriosam nobis aut.'
+                      -
+                        id: 28
+                        first_name: Afton
+                        last_name: Spencer
+                        username: ruben64DWZYB
+                        status: 'Sed molestias et qui expedita ex illum exercitationem.'
+                      -
+                        id: 29
+                        first_name: Wendy
+                        last_name: Kozey
+                        username: dmedhurstOiNVk
+                        status: 'Esse nihil quia ut esse pariatur dolor.'
+                      -
+                        id: 30
+                        first_name: Blake
+                        last_name: Conn
+                        username: hans.dooleyKhYBW
+                        status: 'Dolorem assumenda tempora adipisci et.'
+                      -
+                        id: 31
+                        first_name: Josiah
+                        last_name: Marquardt
+                        username: stephen.crist5Wixv
+                        status: 'Dolorem necessitatibus rerum possimus unde quis.'
+                      -
+                        id: 32
+                        first_name: Natasha
+                        last_name: Bergnaum
+                        username: mathew.trompk3OnY
+                        status: 'Perferendis quas possimus laborum consequatur consectetur sint voluptatibus.'
+                      -
+                        id: 33
+                        first_name: Mckenna
+                        last_name: Goyette
+                        username: eulalia.hegmannfSHnP
+                        status: 'Mollitia magni dolor molestias vel.'
+                      -
+                        id: 34
+                        first_name: Madalyn
+                        last_name: Conroy
+                        username: cleve.hegmannZap5l
+                        status: 'Quia nisi qui ut dolorem eos veritatis cum maiores.'
+                      -
+                        id: 35
+                        first_name: Lance
+                        last_name: Armstrong
+                        username: king02vJowq
+                        status: 'Quod iste quia numquam culpa velit eveniet voluptas.'
+                      -
+                        id: 36
+                        first_name: Duane
+                        last_name: Boyle
+                        username: olson.christianaYa28J
+                        status: 'Quam quaerat aperiam soluta et fuga quaerat.'
+                    items:
+                      type: object
+                  links:
+                    type: object
+                    example:
+                      first: 'http://social-network-api.test/api/users?page=1'
+                      last: 'http://social-network-api.test/api/users?page=9'
+                      prev: 'http://social-network-api.test/api/users?page=2'
+                      next: 'http://social-network-api.test/api/users?page=4'
+                  meta:
+                    type: object
+                    example:
+                      current_page: 3
+                      from: 25
+                      last_page: 9
+                      links:
+                        -
+                          url: 'http://social-network-api.test/api/users?page=2'
+                          label: '&laquo; Previous'
+                          active: false
+                        -
+                          url: 'http://social-network-api.test/api/users?page=1'
+                          label: '1'
+                          active: false
+                        -
+                          url: 'http://social-network-api.test/api/users?page=2'
+                          label: '2'
+                          active: false
+                        -
+                          url: 'http://social-network-api.test/api/users?page=3'
+                          label: '3'
+                          active: true
+                        -
+                          url: 'http://social-network-api.test/api/users?page=4'
+                          label: '4'
+                          active: false
+                        -
+                          url: 'http://social-network-api.test/api/users?page=5'
+                          label: '5'
+                          active: false
+                        -
+                          url: 'http://social-network-api.test/api/users?page=6'
+                          label: '6'
+                          active: false
+                        -
+                          url: 'http://social-network-api.test/api/users?page=7'
+                          label: '7'
+                          active: false
+                        -
+                          url: 'http://social-network-api.test/api/users?page=8'
+                          label: '8'
+                          active: false
+                        -
+                          url: 'http://social-network-api.test/api/users?page=9'
+                          label: '9'
+                          active: false
+                        -
+                          url: 'http://social-network-api.test/api/users?page=4'
+                          label: 'Next &raquo;'
+                          active: false
+                      path: 'http://social-network-api.test/api/users'
+                      per_page: 12
+                      to: 36
+                      total: 100
+      tags:
+        - Users
+      security: []
+  '/api/users/{id}':
+    get:
+      summary: 'Get user by id'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 16
+                    first_name: Kenton
+                    last_name: McGlynn
+                    username: billie.braunRF4Hf
+                    status: 'In soluta voluptatum libero consequatur illo cupiditate corrupti.'
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 16
+                      first_name: Kenton
+                      last_name: McGlynn
+                      username: billie.braunRF4Hf
+                      status: 'In soluta voluptatum libero consequatur illo cupiditate corrupti.'
+      tags:
+        - Users
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Authentication
+    description: "\nAPI endpoints for app auth."
+  -
+    name: Follow
+    description: "\nAPI endpoints for all followers functional"
+  -
+    name: Users
+    description: "\nAPI endpoints for users data"

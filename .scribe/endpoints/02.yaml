@@ -1,0 +1,80 @@
+name: Users
+description: |-
+
+  API endpoints for users data
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/users
+    metadata:
+      title: 'All users list'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters:
+      page:
+        name: page
+        description: 'Current page number'
+        required: false
+        example: 3
+        type: integer
+        custom: []
+      per_page:
+        name: per_page
+        description: 'Page size'
+        required: false
+        example: 12
+        type: integer
+        custom: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":25,"first_name":"Melany","last_name":"Kirlin","username":"labadie.loganwHLa3","status":"Suscipit qui adipisci voluptatem quis quia et sed."},{"id":26,"first_name":"Tommie","last_name":"Price","username":"tillman94ULKWs","status":"Accusamus sed rerum ducimus distinctio et provident autem."},{"id":27,"first_name":"Ashly","last_name":"Kohler","username":"porter.kutchfY2sK","status":"Cumque aut quae laboriosam nobis aut."},{"id":28,"first_name":"Afton","last_name":"Spencer","username":"ruben64DWZYB","status":"Sed molestias et qui expedita ex illum exercitationem."},{"id":29,"first_name":"Wendy","last_name":"Kozey","username":"dmedhurstOiNVk","status":"Esse nihil quia ut esse pariatur dolor."},{"id":30,"first_name":"Blake","last_name":"Conn","username":"hans.dooleyKhYBW","status":"Dolorem assumenda tempora adipisci et."},{"id":31,"first_name":"Josiah","last_name":"Marquardt","username":"stephen.crist5Wixv","status":"Dolorem necessitatibus rerum possimus unde quis."},{"id":32,"first_name":"Natasha","last_name":"Bergnaum","username":"mathew.trompk3OnY","status":"Perferendis quas possimus laborum consequatur consectetur sint voluptatibus."},{"id":33,"first_name":"Mckenna","last_name":"Goyette","username":"eulalia.hegmannfSHnP","status":"Mollitia magni dolor molestias vel."},{"id":34,"first_name":"Madalyn","last_name":"Conroy","username":"cleve.hegmannZap5l","status":"Quia nisi qui ut dolorem eos veritatis cum maiores."},{"id":35,"first_name":"Lance","last_name":"Armstrong","username":"king02vJowq","status":"Quod iste quia numquam culpa velit eveniet voluptas."},{"id":36,"first_name":"Duane","last_name":"Boyle","username":"olson.christianaYa28J","status":"Quam quaerat aperiam soluta et fuga quaerat."}],"links":{"first":"http:\/\/social-network-api.test\/api\/users?page=1","last":"http:\/\/social-network-api.test\/api\/users?page=9","prev":"http:\/\/social-network-api.test\/api\/users?page=2","next":"http:\/\/social-network-api.test\/api\/users?page=4"},"meta":{"current_page":3,"from":25,"last_page":9,"links":[{"url":"http:\/\/social-network-api.test\/api\/users?page=2","label":"&laquo; Previous","active":false},{"url":"http:\/\/social-network-api.test\/api\/users?page=1","label":"1","active":false},{"url":"http:\/\/social-network-api.test\/api\/users?page=2","label":"2","active":false},{"url":"http:\/\/social-network-api.test\/api\/users?page=3","label":"3","active":true},{"url":"http:\/\/social-network-api.test\/api\/users?page=4","label":"4","active":false},{"url":"http:\/\/social-network-api.test\/api\/users?page=5","label":"5","active":false},{"url":"http:\/\/social-network-api.test\/api\/users?page=6","label":"6","active":false},{"url":"http:\/\/social-network-api.test\/api\/users?page=7","label":"7","active":false},{"url":"http:\/\/social-network-api.test\/api\/users?page=8","label":"8","active":false},{"url":"http:\/\/social-network-api.test\/api\/users?page=9","label":"9","active":false},{"url":"http:\/\/social-network-api.test\/api\/users?page=4","label":"Next &raquo;","active":false}],"path":"http:\/\/social-network-api.test\/api\/users","per_page":12,"to":36,"total":100}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/{id}'
+    metadata:
+      title: 'Get user by id'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 16
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":16,"first_name":"Kenton","last_name":"McGlynn","username":"billie.braunRF4Hf","status":"In soluta voluptatum libero consequatur illo cupiditate corrupti."}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
