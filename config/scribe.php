@@ -138,7 +138,7 @@ return [
      * - "static" will generate a static HTMl page in the /public/docs folder,
      * - "laravel" will generate the documentation as a Blade view, so you can add routing and authentication.
      */
-    'type' => 'static',
+    'type' => 'laravel',
 
     /*
      * Settings for `static` type output.
@@ -204,7 +204,7 @@ return [
         /*
          * Set this to true if any endpoints in your API use authentication.
          */
-        'enabled' => false,
+        'enabled' => true,
 
         /*
          * Set this to true if your API should be authenticated by default. If so, you must also set `enabled` (above) to true.
