@@ -27,7 +27,7 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        return UserResource::collection(User::query()->simplePaginate(
+        return UserResource::collection(User::query()->paginate(
             $perPage = (int)$request->query('per_page', 15)
         ));
     }
