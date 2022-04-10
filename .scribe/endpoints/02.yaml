@@ -61,7 +61,7 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 16
+        example: 19
         type: integer
         custom: []
     queryParameters: []
@@ -69,7 +69,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":16,"first_name":"Kenton","last_name":"McGlynn","username":"billie.braunRF4Hf","status":"In soluta voluptatum libero consequatur illo cupiditate corrupti."}}'
+        content: '{"data":{"id":19,"first_name":"Elenor","last_name":"Denesik","username":"plitteliw7Wk","status":"Voluptas rerum voluptas quos voluptatem."}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

@@ -15,6 +15,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -40,6 +41,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -65,6 +67,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -72,7 +75,7 @@ endpoints:
         name: id
         description: 'The ID of the follow.'
         required: true
-        example: 15
+        example: 16
         type: integer
         custom: []
     queryParameters: []
@@ -89,6 +92,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -96,7 +100,7 @@ endpoints:
         name: id
         description: 'The ID of the follow.'
         required: true
-        example: 2
+        example: 1
         type: integer
         custom: []
     queryParameters: []

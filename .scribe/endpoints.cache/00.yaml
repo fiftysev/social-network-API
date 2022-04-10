@@ -24,42 +24,42 @@ endpoints:
         name: first_name
         description: ''
         required: true
-        example: aliquam
+        example: aut
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: tenetur
+        example: aperiam
         type: string
         custom: []
       username:
         name: username
         description: ''
         required: true
-        example: aspernatur
+        example: rem
         type: string
         custom: []
       email:
         name: email
         description: ''
         required: true
-        example: assumenda
+        example: aut
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: mollitia
+        example: molestias
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: ''
         required: true
-        example: harum
+        example: occaecati
         type: string
         custom: []
       profile_background:
@@ -105,14 +105,14 @@ endpoints:
         name: username
         description: ''
         required: true
-        example: aut
+        example: quibusdam
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: iste
+        example: expedita
         type: string
         custom: []
     responses:
@@ -135,6 +135,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -160,6 +161,7 @@ endpoints:
       authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
