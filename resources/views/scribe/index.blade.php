@@ -26,8 +26,8 @@
             </style>
 
     <script>
-        var baseUrl = "https://socialnet-api.herokuapp.com/";
-        var useCsrf = Boolean();
+        var baseUrl = "https://socialnet-api.herokuapp.com";
+        var useCsrf = Boolean(1);
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
     <script src="{{ asset("vendor/scribe/js/tryitout-3.26.0.js") }}"></script>
@@ -130,7 +130,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: April 10 2022</li>
+        <li>Last updated: April 12 2022</li>
     </ul>
 </div>
 
@@ -145,7 +145,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">https://socialnet-api.herokuapp.com/</code></pre>
+<pre><code class="language-yaml">https://socialnet-api.herokuapp.com</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
@@ -172,14 +172,14 @@ You can switch the language used with the tabs at the top right (or from the nav
     "https://socialnet-api.herokuapp.com/api/auth/register" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "first_name=aut" \
-    --form "last_name=aperiam" \
-    --form "username=rem" \
-    --form "email=aut" \
-    --form "password=molestias" \
-    --form "password_confirmation=occaecati" \
-    --form "profile_background=@/private/var/folders/84/w3n_xjhs3jd5njx21_3s09r40000gn/T/php3VnnU4" \
-    --form "avatar=@/private/var/folders/84/w3n_xjhs3jd5njx21_3s09r40000gn/T/phpwgRZYr" </code></pre></div>
+    --form "first_name=deleniti" \
+    --form "last_name=inventore" \
+    --form "username=qui" \
+    --form "email=dolorem" \
+    --form "password=illo" \
+    --form "password_confirmation=saepe" \
+    --form "profile_background=@/private/var/folders/84/w3n_xjhs3jd5njx21_3s09r40000gn/T/phpmRzbSs" \
+    --form "avatar=@/private/var/folders/84/w3n_xjhs3jd5njx21_3s09r40000gn/T/phpFaSpjb" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -193,12 +193,12 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('first_name', 'aut');
-body.append('last_name', 'aperiam');
-body.append('username', 'rem');
-body.append('email', 'aut');
-body.append('password', 'molestias');
-body.append('password_confirmation', 'occaecati');
+body.append('first_name', 'deleniti');
+body.append('last_name', 'inventore');
+body.append('username', 'qui');
+body.append('email', 'dolorem');
+body.append('password', 'illo');
+body.append('password_confirmation', 'saepe');
 body.append('profile_background', document.querySelector('input[name="profile_background"]').files[0]);
 body.append('avatar', document.querySelector('input[name="avatar"]').files[0]);
 
@@ -266,7 +266,7 @@ fetch(url, {
                 <input type="text"
                name="first_name"
                data-endpoint="POSTapi-auth-register"
-               value="aut"
+               value="deleniti"
                data-component="body" hidden>
     <br>
 
@@ -276,7 +276,7 @@ fetch(url, {
                 <input type="text"
                name="last_name"
                data-endpoint="POSTapi-auth-register"
-               value="aperiam"
+               value="inventore"
                data-component="body" hidden>
     <br>
 
@@ -286,7 +286,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-auth-register"
-               value="rem"
+               value="qui"
                data-component="body" hidden>
     <br>
 
@@ -296,7 +296,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-auth-register"
-               value="aut"
+               value="dolorem"
                data-component="body" hidden>
     <br>
 
@@ -306,7 +306,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-auth-register"
-               value="molestias"
+               value="illo"
                data-component="body" hidden>
     <br>
 
@@ -316,7 +316,7 @@ fetch(url, {
                 <input type="text"
                name="password_confirmation"
                data-endpoint="POSTapi-auth-register"
-               value="occaecati"
+               value="saepe"
                data-component="body" hidden>
     <br>
 
@@ -360,8 +360,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"quibusdam\",
-    \"password\": \"expedita\"
+    \"username\": \"nisi\",
+    \"password\": \"molestiae\"
 }"
 </code></pre></div>
 
@@ -377,8 +377,8 @@ const headers = {
 };
 
 let body = {
-    "username": "quibusdam",
-    "password": "expedita"
+    "username": "nisi",
+    "password": "molestiae"
 };
 
 fetch(url, {
@@ -445,7 +445,7 @@ fetch(url, {
                 <input type="text"
                name="username"
                data-endpoint="POSTapi-auth-login"
-               value="quibusdam"
+               value="nisi"
                data-component="body" hidden>
     <br>
 
@@ -455,7 +455,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-auth-login"
-               value="expedita"
+               value="molestiae"
                data-component="body" hidden>
     <br>
 
@@ -904,7 +904,7 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://socialnet-api.herokuapp.com/api/follow/16" \
+    "https://socialnet-api.herokuapp.com/api/follow/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -912,7 +912,7 @@ access-control-allow-origin: *
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://socialnet-api.herokuapp.com/api/follow/16"
+    "https://socialnet-api.herokuapp.com/api/follow/1"
 );
 
 const headers = {
@@ -983,7 +983,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="POSTapi-follow--id-"
-               value="16"
+               value="1"
                data-component="url" hidden>
     <br>
 <p>The ID of the follow.</p>
@@ -1004,7 +1004,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://socialnet-api.herokuapp.com/api/follow/1" \
+    "https://socialnet-api.herokuapp.com/api/follow/3" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1012,7 +1012,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://socialnet-api.herokuapp.com/api/follow/1"
+    "https://socialnet-api.herokuapp.com/api/follow/3"
 );
 
 const headers = {
@@ -1083,7 +1083,7 @@ fetch(url, {
                 <input type="number"
                name="id"
                data-endpoint="DELETEapi-follow--id-"
-               value="1"
+               value="3"
                data-component="url" hidden>
     <br>
 <p>The ID of the follow.</p>
@@ -1389,14 +1389,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://socialnet-api.herokuapp.com/api/users/19" \
+    --get "https://socialnet-api.herokuapp.com/api/users/11" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://socialnet-api.herokuapp.com/api/users/19"
+    "https://socialnet-api.herokuapp.com/api/users/11"
 );
 
 const headers = {
@@ -1429,11 +1429,11 @@ access-control-allow-origin: *
 
 <code class="language-json">{
     &quot;data&quot;: {
-        &quot;id&quot;: 19,
-        &quot;first_name&quot;: &quot;Elenor&quot;,
-        &quot;last_name&quot;: &quot;Denesik&quot;,
-        &quot;username&quot;: &quot;plitteliw7Wk&quot;,
-        &quot;status&quot;: &quot;Voluptas rerum voluptas quos voluptatem.&quot;
+        &quot;id&quot;: 11,
+        &quot;first_name&quot;: &quot;Vicenta&quot;,
+        &quot;last_name&quot;: &quot;Klein&quot;,
+        &quot;username&quot;: &quot;xbrekkeXNN0O&quot;,
+        &quot;status&quot;: &quot;Quo libero accusantium sapiente nam veritatis pariatur.&quot;
     }
 }</code>
  </pre>
@@ -1483,7 +1483,7 @@ access-control-allow-origin: *
                 <input type="number"
                name="id"
                data-endpoint="GETapi-users--id-"
-               value="19"
+               value="11"
                data-component="url" hidden>
     <br>
 <p>The ID of the user.</p>

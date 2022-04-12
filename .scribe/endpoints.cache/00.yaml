@@ -24,42 +24,42 @@ endpoints:
         name: first_name
         description: ''
         required: true
-        example: aut
+        example: deleniti
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: aperiam
+        example: inventore
         type: string
         custom: []
       username:
         name: username
         description: ''
         required: true
-        example: rem
+        example: qui
         type: string
         custom: []
       email:
         name: email
         description: ''
         required: true
-        example: aut
+        example: dolorem
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: molestias
+        example: illo
         type: string
         custom: []
       password_confirmation:
         name: password_confirmation
         description: ''
         required: true
-        example: occaecati
+        example: saepe
         type: string
         custom: []
       profile_background:
@@ -105,14 +105,14 @@ endpoints:
         name: username
         description: ''
         required: true
-        example: quibusdam
+        example: nisi
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: expedita
+        example: molestiae
         type: string
         custom: []
     responses:
